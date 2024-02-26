@@ -1,0 +1,21 @@
+.bookingTableContainer {
+    >div:nth-child(1) {
+        >div:nth-child(2) {
+            >div:nth-child(1) {
+                >div {
+                    >div {
+                        height: 2.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .tableContainer {
+        table {
+            width: 250%;
+            overflow-x: scroll;
+        }
+
+    }
+}

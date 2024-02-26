@@ -32,7 +32,7 @@ const NewHeading = ({ open, menu, menuData, handleSidebarMemu, handleClickLogout
                     <FiAlignJustify fontSize={32} cursor={"pointer"} onClick={handleSidebarMemu} />
                 </Grid>
                 <Grid className={styles.headingName}>
-                    <Typography variant='h5' fontSize={18} fontWeight={600}>Hey, <span>{userName}</span></Typography>
+                    <Typography variant='h5' fontSize={18} fontWeight={600}>Hey, <span>{"Admin"}</span></Typography>
                 </Grid>
                 <Grid className={styles.headinglogout}>
                     <FaUserCircle fontSize={41} cursor={"pointer"} onClick={handleClickLogout} />

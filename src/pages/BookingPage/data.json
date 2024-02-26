@@ -10,113 +10,51 @@
         },
         {
             "id": 4,
-            "title": "BRANCH"
+            "title": "Booking Date"
         },
         {
             "id": 5,
-            "title": "DEPARTMENT"
+            "title": "Advance Payment"
         },
         {
             "id": 6,
-            "title": "DESINATION"
+            "title": "Payment Mothod"
         },
         {
             "id": 7,
-            "title": "DATE OF JOINING"
+            "title": "Pending Amount"
         },
         {
             "id": 8,
-            "title": "ACTION"
-        }
-    ],
-    "tableData": [
-        {
-            "id": 1,
-            "emp_id": "#EMP0000001",
-            "employee": "Julie Lynn",
-            "email": "IsidroTJohnson@armyspy.com",
-            "branch": "China",
-            "department": "Industrials",
-            "designation": "Manager",
-            "dateOfJoing": "Mar 4, 2020",
-            "col_8": "action"
+            "title": "Total Payable Amount"
         },
         {
-            "id": 2,
-            "emp_id": "#EMP0000001",
-            "employee": "Julie Lynn",
-            "email": "IsidroTJohnson@armyspy.com",
-            "branch": "China",
-            "department": "Industrials",
-            "designation": "Manager",
-            "dateOfJoing": "Mar 4, 2020",
-            "col_8": "action"
+            "id": 9,
+            "title": "Destination City"
         },
         {
-            "id": 3,
-            "emp_id": "#EMP0000001",
-            "employee": "Julie Lynn",
-            "email": "IsidroTJohnson@armyspy.com",
-            "branch": "China",
-            "department": "Industrials",
-            "designation": "Manager",
-            "dateOfJoing": "Mar 4, 2020",
-            "col_8": "action"
+            "id": 10,
+            "title": "Destination Pincode"
         },
         {
-            "id": 4,
-            "emp_id": "#EMP0000001",
-            "employee": "Julie Lynn",
-            "email": "IsidroTJohnson@armyspy.com",
-            "branch": "China",
-            "department": "Industrials",
-            "designation": "Manager",
-            "dateOfJoing": "Mar 4, 2020",
-            "col_8": "action"
+            "id": 11,
+            "title": "Destination State"
         },
         {
-            "id": 5,
-            "emp_id": "#EMP0000001",
-            "employee": "Julie Lynn",
-            "email": "IsidroTJohnson@armyspy.com",
-            "branch": "China",
-            "department": "Industrials",
-            "designation": "Manager",
-            "dateOfJoing": "Mar 4, 2020",
-            "col_8": "action"
+            "id": 12,
+            "title": "Pickup Time"
         },
         {
-            "id": 6,
-            "emp_id": "#EMP0000001",
-            "employee": "Julie Lynn",
-            "email": "IsidroTJohnson@armyspy.com",
-            "branch": "China",
-            "department": "Industrials",
-            "designation": "Manager",
-            "dateOfJoing": "Mar 4, 2020",
-            "col_8": "action"
+            "id": 13,
+            "title": "Pickup Date"
         },
         {
-            "id": 7,
-            "emp_id": "#EMP0000001",
-            "employee": "Julie Lynn",
-            "email": "IsidroTJohnson@armyspy.com",
-            "branch": "China",
-            "department": "Industrials",
-            "designation": "Manager",
-            "dateOfJoing": "Mar 4, 2020",
-            "col_8": "action"
+            "id": 14,
+            "title": "Dropoff Time"
         },
         {
-            "id": 8,
-            "emp_id": "#EMP0000001",
-            "employee": "Julie Lynn",
-            "email": "IsidroTJohnson@armyspy.com",
-            "branch": "China",
-            "department": "Industrials",
-            "designation": "Manager",
-            "dateOfJoing": "Mar 4, 2020",
-            "col_8": "action"
+            "id": 15,
+            "title": "Dropoff Date"
         }
     ]
 }

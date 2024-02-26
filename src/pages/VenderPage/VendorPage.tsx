@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import styles from "./VendorPage.module.scss";
 import { Box, Grid, ListItemButton, Typography } from "@mui/material";
 import CommonHeading from "../../components/common/CommonHeading/CommonHeading";
-import EmployeeTable from "../../components/tableData/employeeTable/EmployeeTable";
+import EmployeeTable from "../../components/tableData/bookingTable/BookingTable";
 // import data from "./data.json";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
