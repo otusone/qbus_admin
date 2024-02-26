@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import styles from './Heading.module.scss'
 import { Grid, Box, Typography, Button } from '@mui/material'
 import img from '../../../asserst/images/profile_pic.jpg'
-import CommonButton from '../../../components/common/CommonButton/CommonButton';
-import HeadingNotification from '../../../components/heading/headingNotification/HeadingNotification';
+import CommonButton from '../../components/common/CommonButton/CommonButton';
+import HeadingNotification from '../../components/heading/headingNotification/HeadingNotification';
 import { useLocation } from 'react-router-dom';
 import { LuAlignJustify } from "react-icons/lu";
 import { FaUserCircle } from "react-icons/fa";
-import Sidebar from '../../../components/sidebar/Sidebar';
-import { menuData } from '../menuData';
+import Sidebar from '../../components/sidebar/Sidebar';
+import { menuData } from '../CompanyPolicy/menuData';
 
 export interface IHeading {
     handleCheckIn?: any;
@@ -85,11 +85,11 @@ const Heading = ({ handleCheckIn, handleCheckOut, IsAction, menu, handleClick, h
                 }
             </Grid>
             <Grid className={styles.responsiveMenu}>
-                {menu && <Sidebar
+                {/* {menu && <Sidebar
                     menuData={menuData}
                     handleLogout={undefined}
                     handleResponsiveMenu={handleResponsiveMenu}
-                />}
+                />} */}
             </Grid>
         </Grid>
     )

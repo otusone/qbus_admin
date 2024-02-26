@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import styles from "./EmployeePage.module.scss";
+import styles from "./BookingPage.module.scss";
 import { Box, Grid, ListItemButton, Typography } from "@mui/material";
 import CommonHeading from "../../components/common/CommonHeading/CommonHeading";
 import EmployeeTable from "../../components/tableData/employeeTable/EmployeeTable";
@@ -17,7 +17,7 @@ import jsPDF from 'jspdf';
 import * as XLSX from 'xlsx';
 
 
-const EmployeePage = () => {
+const BookingPage = () => {
   const navigation = useNavigate()
   const [payrollModal, setPayrollModal] = useState(false);
   const [downloadModal, setDownloadModal] = useState(false)
@@ -210,4 +210,4 @@ const EmployeePage = () => {
   );
 };
 
-export default EmployeePage;
+export default BookingPage;
