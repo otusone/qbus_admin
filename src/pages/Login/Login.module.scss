@@ -1,0 +1,49 @@
+.loginContainer {
+    // background-image: linear-gradient(to right, #ffffff 70%, #68C5AE 30%);
+    height: 100vh;
+
+    @media screen and (max-width) {
+        display: flex;
+    }
+
+    >div:nth-child(1) {
+        width: 20%;
+        height: auto;
+
+        @media screen and (max-width:480px) {
+            width: 100%;
+            height: 15rem;
+        }
+
+        img {
+            width: 70%;
+            height: 65%;
+            object-fit: cover;
+
+            @media screen and (max-width:480px) {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    >div:nth-child(2) {
+        width: 34%;
+        height: fit-content;
+        margin: auto;
+        margin-block-start: -6%;
+
+        @media screen and (max-width:480px) {
+            width: 100%;
+            margin-block-start: unset;
+        }
+
+        >div {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+
+}

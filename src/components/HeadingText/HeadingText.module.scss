@@ -1,0 +1,36 @@
+.headingTextContainer {
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 2%;
+    margin-block: 1rem;
+
+    @media screen and (max-width: 480px) {
+        >div {
+
+            >div:nth-child(1),
+            >div:nth-child(3) {
+                // display: none;
+            }
+        }
+    }
+
+    >div {
+        svg {
+            color: #58024B;
+        }
+    }
+
+    .button {
+        display: flex;
+
+        >div:nth-child(1),
+        >div:nth-child(2),
+        div:nth-child(3) {
+            margin-inline-end: 0.5rem;
+
+            @media screen and (max-width: 480px) {
+                margin-inline-end: 0rem;
+            }
+        }
+    }
+}

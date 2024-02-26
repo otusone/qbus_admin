@@ -1,0 +1,92 @@
+.dashboardContainer {
+    padding-inline: 2%;
+    padding-block: 4%;
+
+    .cardContainer {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid #d9def1;
+        padding-block: 1rem;
+        border-radius: 0.5rem;
+
+        @media screen and (max-width: 480px) {
+            flex-direction: column;
+            border: unset;
+            margin-block-start: 14%;
+        }
+
+        .card {
+            width: 32.5%;
+            border-right: 1px dashed #d9def1;
+
+            @media screen and (max-width: 480px) {
+                width: 100%;
+                border: 1px dashed #d9def1;
+                margin-block: 0.5rem;
+                border-radius: 0.25rem;
+
+            }
+
+        }
+    }
+
+    .dashboard {
+        margin-block-start: 3rem;
+        justify-content: space-between;
+
+        @media screen and (max-width:480px) {
+            margin-block-start: 0;
+
+        }
+
+        >div:nth-child(1) {
+
+            @media screen and (max-width: 480px) {
+                width: 100%;
+                margin-block-end: 2rem;
+
+                .tableContainer {
+                    width: 100% !important;
+                }
+            }
+
+            >div {
+                width: 98% !important;
+                border-radius: 0.5rem;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+            }
+
+        }
+
+        >div:nth-child(2) {
+            display: flex;
+            justify-content: right;
+
+            @media screen and (max-width: 480px) {
+                width: 100%;
+            }
+
+            >div {
+                padding-block-start: 2.5%;
+                margin: 0;
+                width: 100%;
+                border: 1px solid #d9def1;
+
+                @media screen and (max-width: 480px) {
+                    border: 1px solid #d9def1;
+
+                    >div {
+                        >div:nth-child(1) {
+                            >div:nth-child(3) {
+                                button[title="This month"] {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

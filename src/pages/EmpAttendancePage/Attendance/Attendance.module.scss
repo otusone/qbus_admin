@@ -1,0 +1,84 @@
+.attendanceContainer {
+    margin-block-start: 3rem;
+    margin-block-end: 2rem;
+    border: 2px solid yellow;
+    width: 96%;
+    margin-inline: auto;
+    border-radius: 0.5rem;
+    border: 1px solid #d9def1;
+    padding-block-start: 1.5%;
+
+
+    .attendanceHeading {
+        display: flex;
+        justify-content: space-between;
+
+        @media screen and (max-width:480px) {
+            display: flex;
+            flex-direction: column;
+
+            >div:nth-child(1) {
+                margin-block-start: 2.5rem;
+
+                width: fit-content;
+                margin-inline: auto;
+            }
+
+            >div:nth-child(2) {
+                display: flex !important;
+                justify-content: space-between;
+                width: 100% !important;
+                padding-inline: 0.5rem !important;
+                margin-block: 0.5rem !important;
+            }
+
+        }
+
+        >div:nth-child(2) {
+            display: flex;
+            padding-inline-end: 1rem;
+            margin-block: auto;
+
+            >div:nth-child(1) {
+                margin-inline-end: 0.5rem;
+            }
+
+            @media screen and (max-width:480px) {
+                display: block;
+                margin-block: auto;
+            }
+        }
+    }
+
+    .attendance {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+
+        .tableContainer {
+
+            table {
+                // width: 120%;
+
+                @media screen and (max-width:480px) {
+                    width: 200%;
+                }
+            }
+        }
+    }
+
+    table {
+
+        tr {
+
+            th {
+                min-width: 1.5rem !important;
+                max-width: 2rem !important;
+            }
+
+            td {
+                min-width: 1.5rem !important;
+                max-width: 2rem !important;
+            }
+        }
+    }
+}

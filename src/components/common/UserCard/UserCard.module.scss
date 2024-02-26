@@ -1,0 +1,81 @@
+.userCardContainer {
+    padding: 1.5rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 0.5rem;
+    position: relative;
+
+
+
+    >div:nth-child(1) {
+        h5 {
+            background-color: #00ACB2;
+            color: #000000;
+            padding-inline: 1.25rem;
+            padding-block: 0.35rem;
+            font-size: 0.85rem;
+            border-radius: 0.25rem;
+        }
+    }
+
+    >div:nth-child(2) {
+        background-color: #ffffff;
+        border: 1px solid darkgrey;
+        border-radius: 0.25rem;
+        position: absolute;
+        top: 20%;
+        right: 10%;
+
+        >div {
+            display: flex !important;
+
+            &:hover {
+                background-color: #00ACB2;
+                color: #000000;
+            }
+
+            >div {
+                width: 100%;
+                padding: 0%;
+                margin: 0%;
+                margin-block: auto;
+
+                span {
+                    font-size: 0.8rem;
+
+                }
+            }
+        }
+    }
+
+    >div:nth-child(3) {
+        width: fit-content;
+        margin: auto;
+
+        >div {
+            width: fit-content;
+            margin: auto;
+        }
+
+        h4 {
+            color: #000000;
+            margin-block-start: 0.5rem;
+            font-weight: 700;
+            font-size: 1.18rem;
+        }
+
+        p {
+            font-size: 0.75rem;
+            margin-block-start: 0.5rem;
+        }
+
+        img {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+        }
+
+        >div+h4+p+div {
+            margin-block-start: 1rem;
+        }
+    }
+}

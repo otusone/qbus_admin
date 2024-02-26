@@ -1,0 +1,45 @@
+.claimsRequestContainer {
+    width: 35rem;
+    height: fit-content;
+    margin: auto;
+
+    @media screen and (max-width:480px) {
+        width: 100%;
+
+    }
+
+    .claimsRequest {
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        padding: 8%;
+
+        .claimsField {
+            >div:nth-child(1) {
+                display: flex;
+                justify-content: space-between;
+
+                >div {
+                    width: 49%;
+                }
+
+
+            }
+
+            >div:nth-child(2) {
+                margin-block: 1rem;
+            }
+
+            >div:nth-child(3) {
+                display: flex;
+                justify-content: right;
+                margin-block-start: 5rem;
+
+                >div:nth-child(1) {
+                    margin-inline-end: 0.5rem;
+                }
+            }
+        }
+
+    }
+
+}

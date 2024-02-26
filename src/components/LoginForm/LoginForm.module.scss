@@ -1,0 +1,34 @@
+.loginFormContainer {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 8%;
+    // width: 32rem;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    position: relative;
+
+    >div>div {
+        margin-block: 1.5rem;
+    }
+
+    >div {
+        margin-block-start: 2rem;
+
+        button {
+            width: 100%;
+            padding-block: 0.85rem;
+            background-color: #000000;
+            color: #00ACB2;
+            font-weight: 600;
+
+            &:hover {
+                background-color: #000000;
+                color: #00ACB2;
+            }
+        }
+    }
+
+    >div+p {
+        margin-block-start: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
