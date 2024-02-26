@@ -47,11 +47,11 @@ const NewHeading = ({ open, menu, menuData, handleSidebarMemu, handleClickLogout
 
             }
             <>
-                {menu &&
+                {/* {menu &&
                     <Grid className={styles.headingSidebarMenu}>
                         <Sidebar menuData={menuData} handleLogout={undefined} handleResponsiveMenu={handleResponsiveMenu} />
                     </Grid>
-                }
+                } */}
             </>
 
         </Grid>

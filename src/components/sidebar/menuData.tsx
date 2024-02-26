@@ -14,37 +14,25 @@ export const menuData = [
     {
         "id": 2,
         "icon": <AiOutlineTeam />,
-        "title": "Staff",
-        "link": "/staff"
+        "title": "User",
+        "link": "/user"
+    },
+    {
+        "id": 3,
+        "icon": <TbCalendarTime />,
+        "title": "Booking",
+        "link": "/booking",
     },
     {
         "id": 4,
-        "icon": <TbCalendarTime />,
-        "title": "Attandance",
-        "link": "/attandance",
+        "icon": <PiNote />,
+        "title": "Vehicles",
+        "link": "/vehicles",
     },
     {
         "id": 5,
-        "icon": <PiNote />,
-        "title": "Manage Leave",
-        "link": "/manage-leave",
-    },
-    {
-        "id": 6,
         "icon": <PiNotePencilFill />,
-        "title": "Request",
-        "link": "/request",
-    },
-    {
-        "id": 7,
-        "icon": <MdOutlineManageHistory />,
-        "title": "Lead Management",
-        "link": "/lead-management",
-    },
-    {
-        "id": 8,
-        "icon": <MdOutlineEventNote />,
-        "title": "Payroll Management",
-        "link": "/pay-slip",
+        "title": "Vendor",
+        "link": "/vendor",
     }
 ]
