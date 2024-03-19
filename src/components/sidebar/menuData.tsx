@@ -12,12 +12,6 @@ export const menuData = [
         "link": "/"
     },
     {
-        "id": 2,
-        "icon": <AiOutlineTeam />,
-        "title": "User",
-        "link": "/user"
-    },
-    {
         "id": 3,
         "icon": <TbCalendarTime />,
         "title": "Booking",

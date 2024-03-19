@@ -6,10 +6,8 @@ import EmployeeTable from "../../components/tableData/bookingTable/BookingTable"
 // import data from "./data.json";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import EmployeeModal from "../../components/modal/EmployeeModal/EmployeeModal";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import CreatePayrollModal from "../../components/modal/CreatePayrollModal/CreatePayrollModal";
 import CommonButton from "../../components/common/CommonButton/CommonButton";
 import SearchBox from "../../components/common/searchBox/SearchBox";
 import html2canvas from 'html2canvas';

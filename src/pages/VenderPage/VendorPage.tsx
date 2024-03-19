@@ -6,10 +6,8 @@ import EmployeeTable from "../../components/tableData/bookingTable/BookingTable"
 // import data from "./data.json";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import EmployeeModal from "../../components/modal/EmployeeModal/EmployeeModal";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import CreatePayrollModal from "../../components/modal/CreatePayrollModal/CreatePayrollModal";
 import CommonButton from "../../components/common/CommonButton/CommonButton";
 import SearchBox from "../../components/common/searchBox/SearchBox";
 import html2canvas from 'html2canvas';
@@ -186,24 +184,7 @@ const VendorPage = () => {
                     setQuery={setQuery}
                     query={query}
                 /> */}
-                <CreatePayrollModal
-                    open={payrollModal}
-                    heading={"Create Payroll"}
-                    name="Submit"
-                    payrollVal={payrollVal}
-                    handleCreate={handleCreatePayroll}
-                    handleClose={handleClose}
-                    handleChange={handleChangePayroll}
-                />
-                <CreatePayrollModal
-                    open={downloadModal}
-                    name="Preview"
-                    heading={"Download Pay Slip"}
-                    payrollVal={payrollVal}
-                    handleCreate={handleDownload}
-                    handleClose={handleClose}
-                    handleChange={handleChangePayroll}
-                />
+
                 <ToastContainer />
             </Grid>
         </Fragment>

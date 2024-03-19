@@ -4,8 +4,6 @@ import { Grid, Typography, Box } from '@mui/material'
 import img from '../../../asserst/images/profile_pic.jpg'
 import { IoIosArrowDown } from 'react-icons/io';
 import { AiOutlineGlobal } from 'react-icons/ai';
-import CommonList from '../../common/CommonList/CommonList';
-
 export interface IHeadingProfile {
     IsImage?: boolean;
     isIcon?: boolean;
@@ -25,7 +23,6 @@ const HeadingProfile = ({ IsImage, isIcon, color, name, handleLogout }: IHeading
             {isIcon ? <AiOutlineGlobal fontSize={20} /> : ""}
             <Typography style={{ color: color }}>{name}!</Typography>
             <IoIosArrowDown onClick={handleClick} fontSize={15} />
-            {show && <CommonList handleLogout={handleLogout} />}
         </Grid >
     )
 }
