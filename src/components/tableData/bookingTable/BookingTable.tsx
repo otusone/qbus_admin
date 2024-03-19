@@ -27,13 +27,13 @@ const BookingTable = ({ tableTitle, tableData }: IBookingTable) => {
   };
   return (
     <Grid className={styles.bookingTableContainer}>
-      <HeadingText
+      {/* <HeadingText
         IsAction={true}
         IsSearchBox={true}
         setQuery={setQuery}
         heading={"All Booking"}
         name="New Booking"
-      />
+      /> */}
       <TableContainer className={styles.tableContainer}>
         <Table>
           <TableHead style={{ backgroundColor: "#00ACB2" }}>

@@ -16,7 +16,7 @@ export interface IMeetingSchedule {
 const MeetingSchedule = ({ data, handleClick, handleEdit, handleDelete }: IMeetingSchedule) => {
     return (
         <Grid className={styles.meetingScheduleContainer}>
-            <HeadingText heading={'Announcement List'} IsAction={true} name='Create' handleClick={handleClick} />
+            {/* <HeadingText heading={'Announcement List'} IsAction={true} name='Create' handleClick={handleClick} /> */}
             <TableContainer>
                 <Table>
                     <TableHead style={{ backgroundColor: "#383A3C" }}>
