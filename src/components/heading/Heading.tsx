@@ -1,30 +1,22 @@
 import React from 'react'
 import styles from './Heading.module.scss'
-import { Grid, Box, Typography } from '@mui/material'
-import img from '../../asserst/images/profile_pic.jpg'
-import HeadingProfile from './headingProfile/HeadingProfile'
-import HeadingNotification from './headingNotification/HeadingNotification'
+import { Grid, Typography } from '@mui/material'
+import CommonButton from '../common/CommonButton/CommonButton'
 
+export interface IHeading {
+    heading: string;
+    IsAction?: boolean;
+    handleClick?:()=>void;
 
-const Heading = ({ handleLogout }: any) => {
+}
+const Heading = ({ heading, IsAction, handleClick }: IHeading) => {
     return (
         <Grid className={styles.headingContainer}>
-            <HeadingProfile
-                IsImage={true}
-                name={'Hi, Shira Arista'}
-                handleLogout={handleLogout}
-            />
-            <Box>
-                <HeadingNotification />
-                <HeadingNotification />
-                {/* <HeadingProfile
-                    isIcon={true}
-                    name={'English'}
-                    color={"#6FD943"}
-                /> */}
-            </Box>
+            <Typography variant='h4' fontSize={25} fontWeight={600}>{heading}</Typography>
+            {IsAction ? <CommonButton name="Add Vahicles" onClick={handleClick}/> : ""}
+
         </Grid>
     )
 }
 
-export default Heading;
+export default Heading

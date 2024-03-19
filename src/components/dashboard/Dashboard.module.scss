@@ -1,107 +1,12 @@
 .dashboardContainer {
-    border-radius: 0.5rem;
-    margin-block-start: 3rem;
-    margin-block-end: 2rem;
-    width: 96% !important;
-    margin-inline: auto;
+    // border: 1px solid yellow;
+    // width: 95%;
+    // margin: auto;
+    margin-block: 3rem;
 
-    .dashboardBody {
-        >div:nth-child(1) {
-            padding-block-start: 1%;
-            padding-inline-end: 2%;
-
-            >div:nth-child(1) {
-                display: flex;
-                justify-content: space-between;
-                padding-block-start: 5%;
-
-                >div {
-                    width: 48%;
-
-                    button {
-                        width: 100%;
-                    }
-                }
-
-                >div:nth-child(2) {
-                    display: none;
-                }
-            }
-
-            >div:nth-child(2) {
-                border: 1px dashed #d9def1;
-                margin-block: 1rem;
-
-            }
-
-            >div:nth-child(3) {
-                border: 1px dashed #d9def1;
-                background-color: #F8FAF9;
-                margin-block: 1rem;
-                border-radius: 0.5rem;
-                display: flex;
-                justify-content: space-between;
-                padding: 4%;
-
-            }
-
-            >div:nth-child(3) {
-                border: 1px solid #d9def1;
-                border-radius: 0.5rem;
-            }
-
-            >div:nth-child(4) {
-                border: 1px solid #d9def1;
-                display: flex;
-                justify-content: space-between;
-                padding-block: 5%;
-
-                >div {
-                    width: 48%;
-
-                    button {
-                        width: 100%;
-                    }
-                }
-            }
-
-            >div:nth-child(5) {
-                border: 1px solid #d9def1;
-                border-radius: 0.5rem;
-            }
-        }
-
-        >div:nth-child(2) {
-            >div {
-                padding-block-start: 2rem;
-            }
-        }
+    .tableContainer {
+        // border: 1px solid blue;
+        margin-block-start: 1rem;
     }
 
-    @media screen and (max-width:480px) {
-        width: 100%;
-        margin-block-start: 6rem;
-
-        .dashboard {
-            >div {
-                width: 100%;
-            }
-        }
-
-        .dashboardBody {
-
-            >div:nth-child(1),
-            >div:nth-child(2) {
-                width: 100%;
-            }
-
-            >div:nth-child(3) {
-                width: 100%;
-
-                >div {
-                    padding-block-start: 2rem;
-                }
-            }
-        }
-    }
 }

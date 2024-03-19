@@ -13,6 +13,7 @@ import SearchBox from "../../components/common/searchBox/SearchBox";
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import * as XLSX from 'xlsx';
+import Heading from "../../components/Heading/Heading";
 
 
 const VehiclesPage = () => {
@@ -41,17 +42,14 @@ const VehiclesPage = () => {
   return (
     <Fragment>
       <Grid className={styles.employeePageContainer}>
-        <CommonHeading
-          heading={"Vehicles"}
-          IsHeadingAction={false}
-        />
+        <Heading heading="Vehicles" />
         <TableContainer>
           <Table>
             <TableHead sx={{ backgroundColor: '#00ACB2' }}>
-              <TableCell sx={{ textAlign: "center" }}>Image</TableCell>
-              <TableCell sx={{ textAlign: "center" }}>Name</TableCell>
-              <TableCell sx={{ textAlign: "center" }}>No of Seats</TableCell>
-              <TableCell sx={{ textAlign: "center" }}>Rate Per Km</TableCell>
+              <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Image</TableCell>
+              <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Name</TableCell>
+              <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>No of Seats</TableCell>
+              <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Rate Per Km</TableCell>
             </TableHead>
             <TableBody>
               {vehiclesData && vehiclesData.map((item: any) => {
