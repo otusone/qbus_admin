@@ -15,7 +15,7 @@ export interface ISelectField {
     handleClick?: any;
 
 }
-const SelectField = ({IsRequire, title, data, option, name, handleChange, handleClick }: ISelectField) => {
+const SelectField = ({ IsRequire, title, data, option, name, handleChange, handleClick }: ISelectField) => {
 
 
     return (
@@ -33,7 +33,7 @@ const SelectField = ({IsRequire, title, data, option, name, handleChange, handle
                     displayEmpty
                     inputProps={{ 'aria-label': 'Without label' }}
                 >
-                    {data.map((item: any, idx: number) => {
+                    {data?.map((item: any, idx: number) => {
                         return (
                             <MenuItem key={idx} value={item} onClick={handleClick}>{item}</MenuItem>
                         )

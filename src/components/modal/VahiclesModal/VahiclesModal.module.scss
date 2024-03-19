@@ -1,0 +1,36 @@
+.vahiclesModalContainer {
+    width: 45rem;
+    margin: auto;
+
+
+    .vahiclesModal {
+        background-color: #ffffff;
+        padding: 7%;
+        border-radius: 0.5rem;
+        margin-block-start: 2.5rem;
+
+        .vehiclesDetails {
+
+            >div {
+                display: flex;
+                justify-content: space-between;
+
+                >div {
+                    width: 49%;
+                    margin-block-end: 1rem;
+                }
+            }
+        }
+
+        .acton {
+            display: flex;
+            justify-content: right;
+            margin-block-start: 1rem;
+
+            >div:nth-child(1) {
+                margin-inline-end: 0.5rem;
+            }
+        }
+
+    }
+}
