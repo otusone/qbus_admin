@@ -1,0 +1,34 @@
+.actionModal {
+    width: 34rem;
+    height: fit-content;
+    margin: auto;
+
+    .approveReq {
+        background-color: #ffffff;
+        padding: 8%;
+        border-radius: 0.5rem;
+
+        .acton {
+            display: flex;
+            justify-content: right;
+
+            >div:nth-child(1) {
+                margin-inline-end: 0.5rem;
+            }
+        }
+
+        .vehiclesInfo {
+            // border: 1px solid yellow;
+
+            >div:nth-child(2) {
+
+                >div {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin-block: 1rem;
+                }
+            }
+        }
+    }
+}

@@ -18,4 +18,11 @@
         }
 
     }
+    .actionButton {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-block-start: 1rem;
+        padding-inline: 2%;
+    }
 }

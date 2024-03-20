@@ -50,7 +50,9 @@ const VahiclesModal = ({ open, venders, categories, inputVal, handleClose, handl
                             <RadioGroup
                                 row
                                 aria-labelledby="demo-row-radio-buttons-group-label"
-                                name="row-radio-buttons-group"
+                                name="available"
+                                value={inputVal.available}
+                                onChange={handleChange}
                             >
                                 <FormControlLabel value="true" control={<Radio />} label="Available" />
                                 <FormControlLabel value="false" control={<Radio />} label="Not Available" />

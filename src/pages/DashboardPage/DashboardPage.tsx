@@ -4,16 +4,16 @@ import { Grid, Typography } from '@mui/material'
 import Heading from '../../components/Heading/Heading'
 import VahiclesModal from '../../components/modal/VahiclesModal/VahiclesModal'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const DashboardPage = () => {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     const handleAddModal = () => setOpen(!open)
     const handleClose = () => setOpen(false)
-    const [inputVal, setInputVal] = useState<any>({ venderName: "", name: "", vehicleNumber: "", img: "", desc: "", ratePerKm: "", noOfSeats: "", available: "" })
+    const [inputVal, setInputVal] = useState<any>({ venderName: "", name: "", vehicleNumber: "", img: "", desc: "", ratePerKm: "", noOfSeats: "", available: false })
     const [venders, setVenders] = useState<any>()
     const [vendersDetails, setVendersDetails] = useState<any>()
     const [venderId, setVenderId] = useState()
-
     const [categories, setCategories] = useState()
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -83,8 +83,10 @@ const DashboardPage = () => {
                         Authorization: `Bearer ${Token}`
                     }
                 })
-            console.log(response, "response....")
-
+            if (response.status === 201) {
+                setOpen(false)
+                toast.success(response.data.message)
+            }
         }
         catch (err) {
             console.log(err)
