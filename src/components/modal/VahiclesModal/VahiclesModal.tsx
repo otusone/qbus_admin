@@ -88,16 +88,6 @@ const VahiclesModal = ({ open, venders, categories, inputVal, handleClose, handl
                             type={"number"}
                         />
                         <InputField
-                            label={'Image'}
-                            name={'img'}
-                            placeholder={''}
-                            value={inputVal.img}
-                            handleChange={handleChange}
-                            type={"file"}
-                        />
-                    </Box>
-                    <Box>
-                        <InputField
                             label={'Description'}
                             name={'desc'}
                             placeholder={''}
