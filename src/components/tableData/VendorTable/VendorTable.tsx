@@ -10,7 +10,7 @@ const VendorTable = ({ data }: IVendorTable) => {
         <Grid>
             <TableContainer>
                 <Table>
-                    <TableHead sx={{ backgroundColor: "#00ACB2" }}>
+                    <TableHead sx={{ backgroundColor: "#00AB8E" }}>
                         <TableRow>
                             <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Name</TableCell>
                             <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Email</TableCell>

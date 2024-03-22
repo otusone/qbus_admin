@@ -123,7 +123,7 @@ const VehiclesPage = () => {
           <Heading heading="Vehicles" />
           <TableContainer>
             <Table>
-              <TableHead sx={{ backgroundColor: '#00ACB2' }}>
+              <TableHead sx={{ backgroundColor: '#00AB8E' }}>
                 <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Name</TableCell>
                 <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Email</TableCell>
                 <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Phone</TableCell>
@@ -167,7 +167,7 @@ const VehiclesPage = () => {
           <Heading heading="Available Vehicles" />
           <TableContainer>
             <Table>
-              <TableHead sx={{ backgroundColor: '#00ACB2' }}>
+              <TableHead sx={{ backgroundColor: '#00AB8E' }}>
                 <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Name</TableCell>
                 <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Email</TableCell>
                 <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Phone</TableCell>

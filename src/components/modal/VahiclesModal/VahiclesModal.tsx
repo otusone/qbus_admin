@@ -87,14 +87,14 @@ const VahiclesModal = ({ open, venders, categories, inputVal, handleClose, handl
                             handleChange={handleChange}
                             type={"number"}
                         />
-                        <InputField
+                        {/* <InputField
                             label={'Description'}
                             name={'desc'}
                             placeholder={''}
                             value={inputVal.desc}
                             handleChange={handleChange}
                             type={"text"}
-                        />
+                        /> */}
                     </Box>
                 </Grid>
                 <Grid className={styles.acton}>
