@@ -9,9 +9,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CommonButton from "../../components/common/CommonButton/CommonButton";
 import Heading from "../../components/Heading/Heading";
-
 import { FaRegEdit } from "react-icons/fa";
 import ActionModal from "../../components/modal/ActionModal/ActionModal";
+import bus from '../../asserst/images/bus-3.png'
+import travller from '../../asserst/images/travller.png'
 
 
 const VehiclesPage = () => {
@@ -142,7 +143,10 @@ const VehiclesPage = () => {
                       <TableCell sx={{ textAlign: "center" }}>{item?.venderId?.email}</TableCell>
                       <TableCell sx={{ textAlign: "center" }}>{item?.venderId?.mobileNumber}</TableCell>
                       <TableCell sx={{ textAlign: "center" }}>
-                        <img src={item.img} width={100} height={80} />
+                        {item.name === "Bus" ?
+                          <img src={bus} width={120} height={80} />
+                          :
+                          <img src={travller} width={120} height={80} />}
                       </TableCell>
                       <TableCell sx={{ textAlign: "center" }}>{item.name}</TableCell>
                       <TableCell sx={{ textAlign: "center" }}>{item.vehicleNumber}</TableCell>
@@ -183,7 +187,10 @@ const VehiclesPage = () => {
                       <TableCell sx={{ textAlign: "center" }}>{item?.venderId?.email}</TableCell>
                       <TableCell sx={{ textAlign: "center" }}>{item?.venderId?.mobileNumber}</TableCell>
                       <TableCell sx={{ textAlign: "center" }}>
-                        <img src={item.img} width={100} height={80} />
+                        {item.name === "Bus" ?
+                          <img src={bus} width={120} height={80} />
+                          :
+                          <img src={travller} width={120} height={80} />}
                       </TableCell>
                       <TableCell sx={{ textAlign: "center" }}>{item.name}</TableCell>
                       <TableCell sx={{ textAlign: "center" }}>{item.vehicleNumber}</TableCell>
