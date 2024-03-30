@@ -13,6 +13,7 @@ import { FaRegEdit } from "react-icons/fa";
 import ActionModal from "../../components/modal/ActionModal/ActionModal";
 import bus from '../../asserst/images/bus-3.png'
 import travller from '../../asserst/images/travller.png'
+import { MdDelete } from "react-icons/md";
 
 
 const VehiclesPage = () => {
@@ -81,12 +82,35 @@ const VehiclesPage = () => {
       console.error("Error fetching employee data:", error);
     }
 
+  };
+  const handleDelete = async (idx: any) => {
+    console.log(idx, "idx..delete")
+    const loginedUserStr: any = localStorage.getItem("loginedUser");
+    const loginedUser = JSON.parse(loginedUserStr);
+    const Token = loginedUser.tokens[loginedUser.tokens.length - 1].token;
+    try {
+      const response = await axios.delete(`https://qbus.onrender.com/api/v1/vehicles/delete/by-id/${idx}`,
+        {
+          headers: {
+            Authorization: `Bearer ${Token}`
+          }
+        })
+      if (response.status === 200) {
+        toast.success(response.data.message)
+        await fetchData();
+        await fetchavailableData();
+      }
+    }
+    catch (err) {
+      console.log(err)
+    }
+
   }
 
   const fetchData = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`https://qbus-traveler.onrender.com/api/v1/vehicles/all/listed/list`)
+      const response = await axios.get(`https://qbus.onrender.com/api/v1/vehicles/all/listed/list`)
       console.log(response.data.vehicleTypes, "response lis")
       setVehiclesData(response.data.vehicleTypes)
 
@@ -99,7 +123,7 @@ const VehiclesPage = () => {
   const fetchavailableData = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`https://qbus-traveler.onrender.com/api/v1/vehicles/available/list?available=true`)
+      const response = await axios.get(`https://qbus.onrender.com/api/v1/vehicles/available/list?available=true`)
       console.log(response.data.vehicleTypes, "response ava")
       setAvailVehiclesData(response.data.vehicleTypes)
 
@@ -121,7 +145,7 @@ const VehiclesPage = () => {
       <Grid className={styles.employeePageContainer}>
         <Box>
           <Heading heading="Vehicles" />
-          <TableContainer>
+          <TableContainer className={styles.tableContainer}>
             <Table>
               <TableHead sx={{ backgroundColor: '#00AB8E' }}>
                 <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Name</TableCell>
@@ -155,6 +179,7 @@ const VehiclesPage = () => {
                       <TableCell sx={{ textAlign: "center" }}>{item.available === true ? "Available" : "Not Available"}</TableCell>
                       <TableCell sx={{ textAlign: "center" }}>
                         <FaRegEdit fontSize={25} style={{ cursor: "pointer" }} onClick={(() => handleAction(item._id))} />
+                        <MdDelete fontSize={25} style={{ cursor: "pointer", color: "red" }} onClick={(() => handleDelete(item._id))} />
                       </TableCell>
                     </TableRow>
                   )
@@ -199,6 +224,7 @@ const VehiclesPage = () => {
                       <TableCell sx={{ textAlign: "center" }}>{item.available === true ? "Available" : "Not Available"}</TableCell>
                       <TableCell sx={{ textAlign: "center" }}>
                         <FaRegEdit fontSize={25} style={{ cursor: "pointer" }} onClick={(() => handleAction(item._id))} />
+                        <MdDelete fontSize={25} style={{ cursor: "pointer", color: "red" }} onClick={(() => handleDelete(item._id))} />
                       </TableCell>
                     </TableRow>
                   )

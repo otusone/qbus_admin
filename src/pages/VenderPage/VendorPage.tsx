@@ -28,7 +28,7 @@ const VendorPage = () => {
 
         try {
 
-            const response = await axios.get(`https://qbus-traveler.onrender.com/api/v1/user/vendor/list`,
+            const response = await axios.get(`https://qbus.onrender.com/api/v1/user/vendor/list`,
                 {
                     headers: {
                         Authorization: `Bearer ${Token}`

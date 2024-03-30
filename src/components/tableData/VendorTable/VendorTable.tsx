@@ -16,6 +16,7 @@ const VendorTable = ({ data }: IVendorTable) => {
                             <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Email</TableCell>
                             <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Phone</TableCell>
                             <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Address</TableCell>
+                            <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>GST Number</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -26,6 +27,8 @@ const VendorTable = ({ data }: IVendorTable) => {
                                     <TableCell sx={{ textAlign: "center" }}>{item.email}</TableCell>
                                     <TableCell sx={{ textAlign: "center" }}>{item.mobileNumber}</TableCell>
                                     <TableCell sx={{ textAlign: "center" }}>{item.address}</TableCell>
+                                    <TableCell sx={{ textAlign: "center" }}>{item.gstNo}</TableCell>
+
                                 </TableRow>
                             )
                         })}

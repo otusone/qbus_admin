@@ -24,9 +24,9 @@ const App = () => {
 
   const getData = async () => {
     try {
-      const response = await axios.get(`https://hrms-server-ygpa.onrender.com/api/v1/user/get`)
-      const data = response.data.userData;
-      setUserData(data);
+      // const response = await axios.get(`https://qbus.onrender.com/api/v1/user/get`)
+      // const data = response.data.userData;
+      // setUserData(data);
     }
     catch (err) {
       console.log(err)
@@ -35,7 +35,7 @@ const App = () => {
   }
   const handleLogin = async () => {
     try {
-      const response = await axios.post('https://qbus-traveler.onrender.com/api/v1/user/signIn', inputData);
+      const response = await axios.post('https://qbus.onrender.com/api/v1/user/signIn', inputData);
       const loginedUser = response?.data?.data;
 
       if (response.status === 200) {
