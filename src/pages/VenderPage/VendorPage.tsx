@@ -42,6 +42,29 @@ const VendorPage = () => {
             console.error("Error fetching employee data:", error);
         }
     };
+    const handleDelete = async (idx: any) => {
+        console.log(idx, "idx...")
+        console.log(idx, "idx..delete")
+        const loginedUserStr: any = localStorage.getItem("loginedUser");
+        const loginedUser = JSON.parse(loginedUserStr);
+        const Token = loginedUser.tokens[loginedUser.tokens.length - 1].token;
+        try {
+            const response = await axios.delete(`https://qbus.onrender.com/api/v1/user/delete/by-id/${idx}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${Token}`
+                    }
+                })
+            if (response.status === 200) {
+                toast.success(response.data.message)
+                await fetchData();
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
+
+    }
 
     useEffect(() => {
         fetchData();
@@ -50,8 +73,11 @@ const VendorPage = () => {
     return (
         <Fragment>
             <Grid className={styles.employeePageContainer}>
-                <Heading heading="Vendors"/>
-                <VendorTable data={venders} />
+                <Heading heading="Vendors" />
+                <VendorTable
+                    data={venders}
+                    handleDelete={handleDelete}
+                />
                 <ToastContainer />
             </Grid>
         </Fragment>
