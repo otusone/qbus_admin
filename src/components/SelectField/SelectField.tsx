@@ -35,7 +35,9 @@ const SelectField = ({ IsRequire, title, data, option, name, handleChange, handl
                 >
                     {data?.map((item: any, idx: number) => {
                         return (
-                            <MenuItem key={idx} value={item} onClick={handleClick}>{item}</MenuItem>
+                            <MenuItem key={idx} value={item} onClick={handleClick}>
+                                {item.email ? <>{item.name} - {item.email}</> : <>{item}</>}
+                            </MenuItem>
                         )
                     })}
                 </Select>

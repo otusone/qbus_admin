@@ -25,7 +25,7 @@ const BookingPage = () => {
 
     try {
       setLoading(true);
-      const response = await axios.get(`https://qbus-traveler.onrender.com/api/v1/booking/get/all/booking/list`,
+      const response = await axios.get(`https://qbus.onrender.com/api/v1/booking/get/all/booking/list`,
         {
           headers: {
             Authorization: `Bearer ${Token}`

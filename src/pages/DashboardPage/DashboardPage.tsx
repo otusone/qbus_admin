@@ -14,11 +14,13 @@ const DashboardPage = () => {
     const [venders, setVenders] = useState<any>()
     const [vendersDetails, setVendersDetails] = useState<any>()
     const [venderId, setVenderId] = useState()
-    const [categories, setCategories] = useState()
+    const [categories, setCategories] = useState();
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setInputVal({ ...inputVal, [name]: value });
-        const selectedVender = vendersDetails.find((item: any) => item.name === value);
+        const { email }: any = value;
+        const selectedVender = vendersDetails.find((item: any) => item.email === email);
         if (selectedVender) {
             const { _id } = selectedVender;
             setVenderId(_id);
@@ -26,6 +28,7 @@ const DashboardPage = () => {
             console.error("Selected vendor not found");
         }
     };
+
     const fetchVerndors = async () => {
         const loginedUserStr: any = localStorage.getItem("loginedUser");
         const loginedUser = JSON.parse(loginedUserStr);
@@ -40,7 +43,7 @@ const DashboardPage = () => {
                 })
             const data = response.data.vendorData;
             setVendersDetails(data)
-            const venderList = data.map((item: any) => item.name)
+            const venderList = data.map((item: any) => ({ name: item.name, email: item.email }))
             setVenders(venderList);
 
         } catch (error) {
@@ -86,6 +89,7 @@ const DashboardPage = () => {
             if (response.status === 201) {
                 setOpen(false)
                 toast.success(response.data.message)
+                setInputVal({ venderName: "", name: "", vehicleNumber: "", img: "", desc: "", ratePerKm: "", noOfSeats: "", available: false })
             }
         }
         catch (err) {
