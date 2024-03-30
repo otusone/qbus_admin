@@ -1,11 +1,14 @@
 import React from 'react'
 import styles from './VendorTable.module.scss'
 import { Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
+import { MdDelete } from "react-icons/md";
+
 
 export interface IVendorTable {
     data: any
+    handleDelete: any;
 }
-const VendorTable = ({ data }: IVendorTable) => {
+const VendorTable = ({ data, handleDelete }: IVendorTable) => {
     return (
         <Grid>
             <TableContainer>
@@ -17,6 +20,8 @@ const VendorTable = ({ data }: IVendorTable) => {
                             <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Phone</TableCell>
                             <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Address</TableCell>
                             <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>GST Number</TableCell>
+                            <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Action</TableCell>
+
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -28,7 +33,9 @@ const VendorTable = ({ data }: IVendorTable) => {
                                     <TableCell sx={{ textAlign: "center" }}>{item.mobileNumber}</TableCell>
                                     <TableCell sx={{ textAlign: "center" }}>{item.address}</TableCell>
                                     <TableCell sx={{ textAlign: "center" }}>{item.gstNo}</TableCell>
-
+                                    <TableCell sx={{ textAlign: "center" }}>
+                                        <MdDelete onClick={(() => handleDelete(item._id))} fontSize={21} cursor={"pointer"} style={{ color: "red" }} />
+                                    </TableCell>
                                 </TableRow>
                             )
                         })}
