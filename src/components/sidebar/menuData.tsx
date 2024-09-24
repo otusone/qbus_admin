@@ -20,8 +20,8 @@ export const menuData = [
     {
         "id": 4,
         "icon": <PiNote />,
-        "title": "Vehicles",
-        "link": "/vehicles",
+        "title": "Manage Vechile",
+        "link": "/manage",
     },
     {
         "id": 5,

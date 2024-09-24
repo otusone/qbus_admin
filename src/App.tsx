@@ -35,9 +35,8 @@ const App = () => {
   }
   const handleLogin = async () => {
     try {
-      const response = await axios.post('https://qbus.onrender.com/api/v1/user/signIn', inputData);
+      const response = await axios.post('https://qbus-71fd8e240bea.herokuapp.com/api/v1/admin/login', inputData);
       const loginedUser = response?.data?.data;
-
       if (response.status === 200) {
         toast.success("Logined successfully")
         const userToken = loginedUser?.tokens?.[0].token;
@@ -58,7 +57,7 @@ const App = () => {
     const loginedUserStr: any = localStorage.getItem("loginedUser");
     if (loginedUserStr) {
       const loginedUser = JSON.parse(loginedUserStr);
-      const lastToken = loginedUser.tokens[loginedUser.tokens.length - 1].token;
+      const lastToken = loginedUser.token;
       setIsLogin(lastToken)
     }
     getData();

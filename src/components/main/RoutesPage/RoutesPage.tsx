@@ -5,6 +5,8 @@ import BookingPage from '../../../pages/BookingPage/BookingPage'
 import VehiclesPage from '../../../pages/VehiclesPage/VehiclesPage'
 import VendorPage from '../../../pages/VenderPage/VendorPage'
 import DashboardPage from '../../../pages/DashboardPage/DashboardPage'
+import AvailableVechiles from '../../../pages/DashboardPage/AvilableVehiles'
+import VechileType from '../../../pages/ManageVechiles/Vehicle_Type'
 
 const RoutesPage = () => {
     return (
@@ -12,7 +14,10 @@ const RoutesPage = () => {
             <Routes>
                 <Route path='/' element={<DashboardPage />} />
                 <Route path='/booking' element={<BookingPage />} />
-                <Route path='/vehicles' element={<VehiclesPage />} />
+                <Route path='/manage' element={<VehiclesPage/>}>
+                <Route path='all-listed-vehicle-types' element={<AvailableVechiles />} />
+                <Route path='all-vehicle-types' element={<VechileType/>}></Route>
+                </Route>
                 <Route path='/vendor' element={<VendorPage />} />
             </Routes>
         </Fragment>

@@ -7,20 +7,21 @@ import data from "./data.json";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
+import Heading from "../../components/Heading/Heading"; 
 import 'react-toastify/dist/ReactToastify.css';
-import Heading from "../../components/Heading/Heading";
 
 
 const BookingPage = () => {
   const navigation = useNavigate()
   const handleClose = () => { };
   const [bookings, setBookings] = useState<any>([]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  
 
   const fetchData = async () => {
     const loginedUserStr: any = localStorage.getItem("loginedUser");
     const loginedUser = JSON.parse(loginedUserStr);
-    const Token = loginedUser.tokens[loginedUser.tokens.length - 1].token;
+    const Token = loginedUser.token;
     console.log(Token, "Token")
 
     try {
@@ -41,12 +42,9 @@ const BookingPage = () => {
       setLoading(false)
     }
   };
-
   useEffect(() => {
     fetchData();
   }, []);
-
-
   return (
     <Fragment>
       <Grid className={styles.employeePageContainer}>

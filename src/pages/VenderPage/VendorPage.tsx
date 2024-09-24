@@ -23,7 +23,7 @@ const VendorPage = () => {
     const fetchData = async () => {
         const loginedUserStr: any = localStorage.getItem("loginedUser");
         const loginedUser = JSON.parse(loginedUserStr);
-        const Token = loginedUser.tokens[loginedUser.tokens.length - 1].token;
+        const Token = loginedUser.token;
         console.log(Token, "Token")
 
         try {
@@ -47,7 +47,7 @@ const VendorPage = () => {
         console.log(idx, "idx..delete")
         const loginedUserStr: any = localStorage.getItem("loginedUser");
         const loginedUser = JSON.parse(loginedUserStr);
-        const Token = loginedUser.tokens[loginedUser.tokens.length - 1].token;
+        const Token = loginedUser.token;
         try {
             const response = await axios.delete(`https://qbus.onrender.com/api/v1/user/delete/by-id/${idx}`,
                 {

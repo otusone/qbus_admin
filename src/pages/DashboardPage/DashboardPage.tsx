@@ -32,7 +32,7 @@ const DashboardPage = () => {
     const fetchVerndors = async () => {
         const loginedUserStr: any = localStorage.getItem("loginedUser");
         const loginedUser = JSON.parse(loginedUserStr);
-        const Token = loginedUser.tokens[loginedUser.tokens.length - 1].token;
+        const Token = loginedUser.token;
 
         try {
             const response = await axios.get(`https://qbus.onrender.com/api/v1/user/vendor/list`,
@@ -53,7 +53,7 @@ const DashboardPage = () => {
     const fetchCategories = async () => {
         const loginedUserStr: any = localStorage.getItem("loginedUser");
         const loginedUser = JSON.parse(loginedUserStr);
-        const Token = loginedUser.tokens[loginedUser.tokens.length - 1].token;
+        const Token = loginedUser.token;
         console.log(Token, "Token")
 
         try {

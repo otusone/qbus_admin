@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
 import styles from "./VehiclesPage.module.scss";
-import { Box, Grid, ListItemButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
+import { Box, Grid, ListItemButton, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography,Link } from "@mui/material";
 import CommonHeading from "../../components/common/CommonHeading/CommonHeading";
 import EmployeeTable from "../../components/tableData/bookingTable/BookingTable";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,6 +14,8 @@ import ActionModal from "../../components/modal/ActionModal/ActionModal";
 import bus from '../../asserst/images/bus-3.png'
 import travller from '../../asserst/images/travller.png'
 import { MdDelete } from "react-icons/md";
+import { manageTypes } from "../../data/Admin_Paths";
+
 
 
 const VehiclesPage = () => {
@@ -39,7 +41,7 @@ const VehiclesPage = () => {
   const handleavAilability = async () => {
     const loginedUserStr: any = localStorage.getItem("loginedUser");
     const loginedUser = JSON.parse(loginedUserStr);
-    const Token = loginedUser.tokens[loginedUser.tokens.length - 1].token;
+    const Token = loginedUser.token;
     try {
       const response = await axios.patch(`https://qbus.onrender.com/api/v1/vehicles/update/vehicles/availability/${vehiclesId}`, avai,
         {
@@ -64,7 +66,7 @@ const VehiclesPage = () => {
   const handleUpdate = async () => {
     const loginedUserStr: any = localStorage.getItem("loginedUser");
     const loginedUser = JSON.parse(loginedUserStr);
-    const Token = loginedUser.tokens[loginedUser.tokens.length - 1].token;
+    const Token = loginedUser.token;
     try {
       const response = await axios.patch(`https://qbus.onrender.com/api/v1/vehicles/partial/vehicles-update/${vehiclesId}`, inputVal,
         {
@@ -87,7 +89,7 @@ const VehiclesPage = () => {
     console.log(idx, "idx..delete")
     const loginedUserStr: any = localStorage.getItem("loginedUser");
     const loginedUser = JSON.parse(loginedUserStr);
-    const Token = loginedUser.tokens[loginedUser.tokens.length - 1].token;
+    const Token = loginedUser.token;
     try {
       const response = await axios.delete(`https://qbus.onrender.com/api/v1/vehicles/delete/by-id/${idx}`,
         {
@@ -120,6 +122,8 @@ const VehiclesPage = () => {
       setLoading(false)
     }
   };
+
+
   const fetchavailableData = async () => {
     try {
       setLoading(true);
@@ -133,6 +137,7 @@ const VehiclesPage = () => {
       setLoading(false)
     }
   };
+  
 
   useEffect(() => {
     fetchData();
@@ -143,97 +148,27 @@ const VehiclesPage = () => {
   return (
     <Fragment>
       <Grid className={styles.employeePageContainer}>
-        <Box>
-          <Heading heading="Vehicles" />
-          <TableContainer className={styles.tableContainer}>
-            <Table>
-              <TableHead sx={{ backgroundColor: '#00AB8E' }}>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Name</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Email</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Phone</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Image</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Categories</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vehicle Number</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>No of Seats</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Rate Per Km</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Status</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Action</TableCell>
-              </TableHead>
-              <TableBody>
-                {vehiclesData && vehiclesData.map((item: any) => {
-                  return (
-                    <TableRow>
-                      <TableCell sx={{ textAlign: "center" }}>{item?.venderId?.name}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>{item?.venderId?.email}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>{item?.venderId?.mobileNumber}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>
-                        {item.name === "Bus" ?
-                          <img src={bus} width={120} height={80} />
-                          :
-                          <img src={travller} width={120} height={80} />}
-                      </TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>{item.name}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>{item.vehicleNumber}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>{item.noOfSeats}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>{item.ratePerKm}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>{item.available === true ? "Available" : "Not Available"}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>
-                        <FaRegEdit fontSize={25} style={{ cursor: "pointer" }} onClick={(() => handleAction(item._id))} />
-                        <MdDelete fontSize={25} style={{ cursor: "pointer", color: "red" }} onClick={(() => handleDelete(item._id))} />
-                      </TableCell>
-                    </TableRow>
-                  )
-                })}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </Box>
-        <Box>
-          <Heading heading="Available Vehicles" />
-          <TableContainer>
-            <Table>
-              <TableHead sx={{ backgroundColor: '#00AB8E' }}>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Name</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Email</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Phone</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Image</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Categories</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vehicle Number</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>No of Seats</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Rate Per Km</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Status</TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Action</TableCell>
-              </TableHead>
-              <TableBody>
-                {availvehiclesData && availvehiclesData.map((item: any) => {
-                  return (
-                    <TableRow>
-                      <TableCell sx={{ textAlign: "center" }}>{item?.venderId?.name}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>{item?.venderId?.email}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>{item?.venderId?.mobileNumber}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>
-                        {item.name === "Bus" ?
-                          <img src={bus} width={120} height={80} />
-                          :
-                          <img src={travller} width={120} height={80} />}
-                      </TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>{item.name}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>{item.vehicleNumber}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>{item.noOfSeats}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>{item.ratePerKm}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>{item.available === true ? "Available" : "Not Available"}</TableCell>
-                      <TableCell sx={{ textAlign: "center" }}>
-                        <FaRegEdit fontSize={25} style={{ cursor: "pointer" }} onClick={(() => handleAction(item._id))} />
-                        <MdDelete fontSize={25} style={{ cursor: "pointer", color: "red" }} onClick={(() => handleDelete(item._id))} />
-                      </TableCell>
-                    </TableRow>
-                  )
-                })}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </Box>
-        <ToastContainer />
+      <Stack direction="row" spacing={2}>
+            {manageTypes.map((type) => (
+                <Link key={type.id} href={type.link} underline="hover" color="inherit"
+                sx={{
+                  backgroundColor: '#00AB8E', 
+                  padding: '8px 16px',        
+                  borderRadius: '4px',        
+                  color: '#fff',             
+                  textDecoration: 'none',    
+                  '&:hover': {
+                    backgroundColor: '#007B5E', 
+                  },
+                }}
+                >
+                    <Typography>{type.title}</Typography>
+                </Link>
+            ))}
+        </Stack>
+       <Outlet/>
+    
+        {/* <ToastContainer /> */}
       </Grid>
       <ActionModal
         open={actionModal}
