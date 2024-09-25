@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Grid, Box, MenuList, MenuItem, Typography } from '@mui/material'
 import { useLocation, useNavigate } from 'react-router-dom'
 import styles from './Sidebar.module.scss'
-import logo from '../../asserst/images/caronboardingscreen.png'
+import logo from '../../asserst/logo.jpg'
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { TbPoint } from "react-icons/tb";
 import { menuData } from './menuData'
@@ -39,9 +39,21 @@ const Sidebar = ({ handleResponsiveMenu }: ISidebar) => {
     }, [])
     return (
         <Grid className={styles.sidebarContainer}>
-            <Box>
-                <img src={logo} alt='logo' />
-            </Box>
+       <Box sx={{ width: "100%", height: "100px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+  <img
+    src={logo}
+    alt="logo"
+    style={{
+      width: "119px", 
+      height: "95px", 
+      objectFit: "cover",
+      maxWidth: "100%",
+      maxHeight: "100%",
+    }}
+  />
+</Box>
+
+
             <Grid>
                 {menuData?.map((item: any) => {
                     return (

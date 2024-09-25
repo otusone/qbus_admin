@@ -26,3 +26,37 @@ export const manageTypes = [
         "link": "/manage/rental-vehicle-rate-list",
     }
 ]
+
+
+export const AddVehicleDetail = [
+    {
+        "id": 1,
+        "title": "Add Rental Vehicle Rate",
+        "link": "/add-detail/vehicles/add/new-rental-vehicle",
+    },
+    {
+        "id": 2,
+        "title": "Add Onboard Vehicle ",
+        "link": "/add-detail/vehicles/add/new-onboard-vehicle",
+    },
+    {
+        "id": 3,
+        "title": "Add Vehicle Modal",
+        "link": "/add-detail/vehicles/add/new-vehicle-Model",
+    },
+    {
+        "id": 4,
+        "title": "Add Vehicle Type",
+        "link": "/add-detail/vehicles/add/new-Vehicle-Type",
+    },
+    {
+        "id": 5,
+        "title": "Add Rate/Km",
+        "link": "/add-detail/vehicles/add/new-Rate",
+    },
+    {
+        "id": 6,
+        "title": "Add VehicleSeats",
+        "link": "/add-detail/vehicles/add/new-seats"
+    }
+]

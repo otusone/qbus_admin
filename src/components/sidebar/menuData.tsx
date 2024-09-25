@@ -3,6 +3,7 @@ import { AiOutlineTeam } from 'react-icons/ai';
 import { TbCalendarTime } from "react-icons/tb";
 import { MdOutlineManageHistory, MdOutlineEventNote } from "react-icons/md";
 import { PiNote, PiNotePencilFill } from "react-icons/pi";
+import { IoAddCircleOutline } from "react-icons/io5";
 
 export const menuData = [
     {
@@ -25,6 +26,12 @@ export const menuData = [
     },
     {
         "id": 5,
+        "icon": <IoAddCircleOutline />,
+        "title": "Add Vechile Detail",
+        "link": "/add-detail/vehicles/add/",
+    },
+    {
+        "id": 6,
         "icon": <PiNotePencilFill />,
         "title": "Vendor",
         "link": "/vendor",

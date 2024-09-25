@@ -13,7 +13,7 @@ const VendorTable = ({ data, handleDelete }: IVendorTable) => {
         <Grid>
             <TableContainer>
                 <Table>
-                    <TableHead sx={{ backgroundColor: "#00AB8E" }}>
+                    <TableHead sx={{ backgroundColor: "#3FACE2" }}>
                         <TableRow>
                             <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Name</TableCell>
                             <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Email</TableCell>

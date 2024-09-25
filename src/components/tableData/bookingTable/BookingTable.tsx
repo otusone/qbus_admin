@@ -29,7 +29,7 @@ const BookingTable = ({ tableTitle, tableData }: IBookingTable) => {
     <Grid className={styles.bookingTableContainer}>
       <TableContainer className={styles.tableContainer}>
         <Table>
-          <TableHead style={{ backgroundColor: "#00AB8E" }}>
+          <TableHead style={{ backgroundColor: "#3FACE2" }}>
             <TableRow>
               {tableTitle.map((item: any) => {
                 return (

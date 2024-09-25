@@ -79,7 +79,7 @@ const AvailableVechiles=()=>{
         <Heading heading="All Listed Vehicles" />
         <TableContainer className={styles.tableContainer}>
           <Table>
-            <TableHead sx={{ backgroundColor: '#00AB8E' }}>
+            <TableHead sx={{ backgroundColor: '#3FACE2' }}>
               <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Name</TableCell>
               <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Email</TableCell>
               <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vendor Phone</TableCell>
