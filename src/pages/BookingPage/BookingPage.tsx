@@ -25,7 +25,7 @@ const BookingPage = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `https://qbus.onrender.com/api/v1/booking/filter-booking-list?tripStatus=${tripStatus}&startDate=${startDate}&endDate=${endDate}`,
+        `https://qbus-71fd8e240bea.herokuapp.com/api/v1/booking/filter-booking-list?tripStatus=${tripStatus}&startDate=${startDate}&endDate=${endDate}`,
         {
           headers: {
             Authorization: `Bearer ${Token}`,

@@ -35,7 +35,7 @@ const DashboardPage = () => {
         const Token = loginedUser.token;
 
         try {
-            const response = await axios.get(`https://qbus.onrender.com/api/v1/user/vendor/list`,
+            const response = await axios.get(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/user/vendor/list`,
                 {
                     headers: {
                         Authorization: `Bearer ${Token}`
@@ -57,7 +57,7 @@ const DashboardPage = () => {
         console.log(Token, "Token")
 
         try {
-            const response = await axios.get(`https://qbus.onrender.com/api/v1/vehicles/distinct/vehicles-category/list`,
+            const response = await axios.get(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/vehicles/distinct/vehicles-category/list`,
                 {
                     headers: {
                         Authorization: `Bearer ${Token}`
@@ -79,7 +79,7 @@ const DashboardPage = () => {
         const Token = loginedUser.tokens[loginedUser.tokens.length - 1].token;
         console.log(Token, "Token")
         try {
-            const response = await axios.post(`https://qbus.onrender.com/api/v1/vehicles/add/new/${venderId}`, inputVal,
+            const response = await axios.post(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/vehicles/add/new/${venderId}`, inputVal,
 
                 {
                     headers: {

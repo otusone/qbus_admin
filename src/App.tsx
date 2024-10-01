@@ -23,24 +23,14 @@ const App = () => {
   };
 
   const navigate=useNavigate();
-  const getData = async () => {
-    try {
-      // const response = await axios.get(`https://qbus.onrender.com/api/v1/user/get`)
-      // const data = response.data.userData;
-      // setUserData(data);
-    }
-    catch (err) {
-      console.log(err)
-    }
-
-  }
+ 
   const handleLogin = async () => {
     try {
       const response = await axios.post('https://qbus-71fd8e240bea.herokuapp.com/api/v1/admin/login', inputData);
       const loginedUser = response?.data?.data;
       if (response.status === 200) {
         toast.success("Logined successfully")
-        navigate("/manage")
+        navigate("/booking")
         const userToken = loginedUser?.tokens?.[0].token;
         setIsLogin(userToken)
         localStorage.setItem('loginedUser', JSON.stringify(loginedUser));
@@ -62,7 +52,7 @@ const App = () => {
       const lastToken = loginedUser.token;
       setIsLogin(lastToken)
     }
-    getData();
+   
   }, []);
 
 

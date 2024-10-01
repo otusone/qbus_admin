@@ -75,8 +75,8 @@ const Sidebar = ({ handleResponsiveMenu }: ISidebar) => {
             </Grid>
             <Grid className={styles.logout}>
                 <Box display={"flex"} sx={{ paddingInline: 2, paddingBlockEnd: 1 }} >
-                    <Typography fontSize={14} sx={{ cursor: "pointer", "&:hover": { color: "#68C5AE" } }} onClick={(() => navigation('/company-policy'))}>*Company policy</Typography>
-                    <Typography fontSize={14} sx={{ cursor: "pointer", "&:hover": { color: "#68C5AE" } }} paddingInlineStart={1}
+                    <Typography fontSize={14} sx={{ cursor: "pointer", "&:hover": { color: "#3FACE" } }} onClick={(() => navigation('/company-policy'))}>*Company policy</Typography>
+                    <Typography fontSize={14} sx={{ cursor: "pointer", "&:hover": { color: "#3FACE" } }} paddingInlineStart={1}
                         onClick={(() => navigation('/leave-policy'))}>*Leave policy</Typography>
                 </Box>
                 {/* <MenuList onClick={handleLogout}>

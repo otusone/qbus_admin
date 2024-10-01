@@ -17,7 +17,7 @@ const AddNewRate = () => {
                 "ratePerKm": ratePerKm
             };
             const response = await axios.post(
-                "https://qbus.onrender.com/api/v1//admin/add-new-rate-per-km",
+                "https://qbus-71fd8e240bea.herokuapp.com/api/v1//admin/add-new-rate-per-km",
                 RateonPerKM,
                 {
                     headers: {

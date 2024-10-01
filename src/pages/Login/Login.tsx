@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './Login.module.scss'
 import { Box, Grid, Typography } from '@mui/material'
-import logo from '../../asserst/images/caronboardingscreen.png'
+import logo from '../../asserst/logo.jpg'
 import LoginForm from '../../components/LoginForm/LoginForm'
 export interface ILogin {
     inputData: any;

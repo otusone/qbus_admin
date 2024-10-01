@@ -19,7 +19,7 @@ export interface IOverview {
 }
 const Overview = ({ open, menu, handleSidebarMemu, handleLogout, handleClick, handleResponsiveMenu }: IOverview) => {
     const [userRole, seUserRole] = useState()
-    console.log(userRole, "userRole//")
+   
 
     const getUserData = async () => {
         try {
