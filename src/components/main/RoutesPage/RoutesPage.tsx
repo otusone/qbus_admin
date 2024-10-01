@@ -17,11 +17,11 @@ import AddVehicleModel from '../../../pages/Add_Vehicle_Details/AddVehicleModel'
 import AddVehicleTpe from '../../../pages/Add_Vehicle_Details/AddVehicleType'
 import AddNewRate from '../../../pages/Add_Vehicle_Details/AddNewRate'
 import AddVehicleSeats from '../../../pages/Add_Vehicle_Details/AddVehicleSeats'
+import UserListPage from '../../../pages/UsersListPage/UserList'
 const RoutesPage = () => {  
     return (
         <Fragment>
             <Routes>
-                <Route path='/' element={<DashboardPage />} />
                 <Route path='/booking' element={<BookingPage />} />
                 <Route path='/manage/' element={<VehiclesPage/>}>
                  <Route path='all-listed-vehicle-types' element={<AvailableVechiles />} />
@@ -39,6 +39,7 @@ const RoutesPage = () => {
                 <Route path='new-seats' element={<AddVehicleSeats/>}></Route>
                 </Route>
                 <Route path='/vendor' element={<VendorPage />} />
+                <Route  path='/user' element={<UserListPage/>}/>
             </Routes>
         </Fragment>
     )

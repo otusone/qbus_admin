@@ -32,7 +32,7 @@ const AvailableVechiles=()=>{
     const fetchData = async () => {
         try {
           setLoading(true);
-          const response = await axios.get(`https://qbus.onrender.com/api/v1/vehicles/all/listed/list`)
+          const response = await axios.get(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/vehicles/all/listed/list`)
           console.log(response.data.vehicleTypes, "response lis")
           setVehiclesData(response.data.vehicleTypes)
     
@@ -49,7 +49,7 @@ const AvailableVechiles=()=>{
         const loginedUser = JSON.parse(loginedUserStr);
         const Token = loginedUser.token;
         try {
-          const response = await axios.delete(`https://qbus.onrender.com/api/v1/vehicles/delete/by-id/${idx}`,
+          const response = await axios.delete(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/vehicles/delete/by-id/${idx}`,
             {
               headers: {
                 Authorization: `Bearer ${Token}`
@@ -67,6 +67,11 @@ const AvailableVechiles=()=>{
     
       }
 
+      function removeSpaces(inputString:string) {
+        return inputString.replace(/\s+/g, '');
+    }
+     
+      
       
   useEffect(() => {
     fetchData();
@@ -105,12 +110,13 @@ const AvailableVechiles=()=>{
                         <img src={travller} width={120} height={80} />}
                     </TableCell>
                     <TableCell sx={{ textAlign: "center" }}>{item.name}</TableCell>
-                    <TableCell sx={{ textAlign: "center" }}>{item.vehicleNumber}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>      {removeSpaces(item?.vehicleNumber)}
+    </TableCell>
                     <TableCell sx={{ textAlign: "center" }}>{item.noOfSeats}</TableCell>
                     <TableCell sx={{ textAlign: "center" }}>{item.ratePerKm}</TableCell>
                     <TableCell sx={{ textAlign: "center" }}>{item.available === true ? "Available" : "Not Available"}</TableCell>
                     <TableCell sx={{ textAlign: "center" }}>
-                      <FaRegEdit fontSize={25} style={{ cursor: "pointer" }} onClick={(() => handleAction(item._id))} />
+                      {/* <FaRegEdit fontSize={25} style={{ cursor: "pointer" }} onClick={(() => handleAction(item._id))} /> */}
                       <MdDelete fontSize={25} style={{ cursor: "pointer", color: "red" }} onClick={(() => handleDelete(item._id))} />
                     </TableCell>
                   </TableRow>

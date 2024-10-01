@@ -22,7 +22,7 @@ const AddVehicleModel = () => {
                 "vehicleModel": vehicleModel };
 
             const response = await axios.post(
-                "https://qbus.onrender.com/api/v1/admin/add-new-vehicle-modal",
+                "https://qbus-71fd8e240bea.herokuapp.com/api/v1/admin/add-new-vehicle-modal",
                 vehicleModelData,
                 {
                     headers: {

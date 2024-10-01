@@ -51,10 +51,7 @@ const Sidebar = ({ handleResponsiveMenu }: ISidebar) => {
       maxHeight: "100%",
     }}
   />
-</Box>
-
-
-            <Grid>
+</Box>            <Grid>
                 {menuData?.map((item: any) => {
                     return (
                         <Grid key={item.id} className={styles.sidebarMenu}>

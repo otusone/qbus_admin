@@ -43,9 +43,7 @@ const LoginForm = ({inputData, handleChange, handleClick }: ILoginForm) => {
                 name={"Login"}
                 onClick={handleClick}
             />
-            <Typography style={{ color: "#00AB8E", cursor: "pointer" }}> Kindly contact to HR, if you forgot your Password?</Typography>
-
-
+            <Typography style={{ color: "#3FACE2", cursor: "pointer" }}> Kindly contact to HR, if you forgot your Password?</Typography>
         </Grid>
     )
 }

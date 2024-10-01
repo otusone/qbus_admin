@@ -28,32 +28,35 @@
             "id": 8,
             "title": "Total Payable Amount"
         },
-        {
-            "id": 9,
-            "title": "Destination City"
+        {"id":9,
+          "title":"Source City"
         },
         {
             "id": 10,
-            "title": "Destination Pincode"
+            "title": "Destination City"
         },
         {
             "id": 11,
-            "title": "Destination State"
+            "title": "Destination Pincode"
         },
         {
             "id": 12,
-            "title": "Pickup Time"
+            "title": "Destination State"
         },
         {
             "id": 13,
-            "title": "Pickup Date"
+            "title": "Pickup Time"
         },
         {
             "id": 14,
-            "title": "Dropoff Time"
+            "title": "Pickup Date"
         },
         {
             "id": 15,
+            "title": "Dropoff Time"
+        },
+        {
+            "id": 16,
             "title": "Dropoff Date"
         }
     ]

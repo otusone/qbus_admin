@@ -20,7 +20,7 @@ const VehiclesSeatingList = () => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`https://qbus.onrender.com/api/v1/get-all-seating-type-list`);
+      const response = await axios.get(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/get-all-seating-type-list`);
       console.log("data from req seating", response.data)
       setVehiclesModelData(response.data); // Assuming the API returns an array of vehicles
     } catch (error) {
@@ -35,7 +35,7 @@ const VehiclesSeatingList = () => {
     const loginedUser = JSON.parse(loginedUserStr);
     const Token = loginedUser.token;
     try {
-      const response = await axios.delete(`https://qbus.onrender.com/api/v1/admin/delete-particular-vehicle-type/${id}`, {
+      const response = await axios.delete(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/admin/delete-particular-vehicle-type/${id}`, {
         headers: {
           Authorization: `Bearer ${Token}`,
         },
@@ -61,7 +61,7 @@ const VehiclesSeatingList = () => {
             <TableRow>
               <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Vehicle Type</TableCell>
               <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Seating</TableCell>
-              <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Action</TableCell>
+              {/* <TableCell sx={{ textAlign: "center", fontSize: 16, fontWeight: 600 }}>Action</TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -70,10 +70,9 @@ const VehiclesSeatingList = () => {
                 <TableCell sx={{ textAlign: "center" }}>{item._id}</TableCell>
                 <TableCell sx={{ textAlign: "center" }}>{item.vehicleSeating}
                 </TableCell>
-                <TableCell sx={{ textAlign: "center" }}>
-                  <FaRegEdit fontSize={25} style={{ cursor: "pointer" }} onClick={() => handleAction(item._id)} />
+                {/* <TableCell sx={{ textAlign: "center" }}>
                   <MdDelete fontSize={25} style={{ cursor: "pointer", color: "red" }} onClick={() => handleDelete(item._id)} />
-                </TableCell>
+                </TableCell> */}
               </TableRow>
             ))}
           </TableBody>

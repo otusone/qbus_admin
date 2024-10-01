@@ -18,7 +18,7 @@ const AddVehicleTpe = () => {
                 "vehicleType": vehicleType
             };
             const response = await axios.post(
-                "https://qbus.onrender.com/api/v1/admin/add-new-vehicle-type",
+                "https://qbus-71fd8e240bea.herokuapp.com/api/v1/admin/add-new-vehicle-type",
                 vehicleTypeData,
                 {
                     headers: {

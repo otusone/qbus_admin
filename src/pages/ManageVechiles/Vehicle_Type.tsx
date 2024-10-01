@@ -23,7 +23,7 @@ const VechileType = () => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`https://qbus.onrender.com/api/v1//get-all-vehicle-types`);
+      const response = await axios.get(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/get-all-vehicle-types`);
       console.log(response.data.data, "Available vehicles response");
       setvehiclesTypesData(response.data.data); // Assuming the API returns an array of vehicles
     } catch (error) {
@@ -38,7 +38,7 @@ const VechileType = () => {
     const loginedUser = JSON.parse(loginedUserStr);
     const Token = loginedUser.token;
       try {
-      const response = await axios.delete(`https://qbus.onrender.com/api/v1/admin/delete-particular-vehicle-type/${id}`, {
+      const response = await axios.delete(`https://qbus-71fd8e240bea.herokuapp.com/api/v1admin/delete-particular-vehicle-type/${id}`, {
         headers: {
           Authorization: `Bearer ${Token}`,
         },
@@ -81,7 +81,6 @@ const VechileType = () => {
                   )}
                 </TableCell>
                 <TableCell sx={{ textAlign: "center" }}>
-                  <FaRegEdit fontSize={25} style={{ cursor: "pointer" }} onClick={() => handleAction(item._id)} />
                   <MdDelete fontSize={25} style={{ cursor: "pointer", color: "red" }} onClick={() => handleDelete(item._id)} />
                 </TableCell>
               </TableRow>

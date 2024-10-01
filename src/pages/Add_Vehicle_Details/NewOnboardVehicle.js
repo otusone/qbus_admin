@@ -35,7 +35,7 @@ const NewOnboardVehicle = () => {
       const loginedUserStr = localStorage.getItem("loginedUser");
       const loginedUser = JSON.parse(loginedUserStr);
       const Token = loginedUser?.token;
-      const response = await axios.get("https://qbus.onrender.com/api/v1/user/vendor/list",
+      const response = await axios.get("https://qbus-71fd8e240bea.herokuapp.com/api/v1/user/vendor/list",
         {
           headers: {
             Authorization: `Bearer ${Token}`,
@@ -54,7 +54,7 @@ const NewOnboardVehicle = () => {
   const fetchVehicleRates = async () => {
     try {
       const response = await axios.get(
-        "https://qbus.onrender.com/api/v1//get-all-rental-vehicle-rate-list"
+        "https://qbus-71fd8e240bea.herokuapp.com/api/v1//get-all-rental-vehicle-rate-list"
       );
       console.log("ggg", response.data)
       setVehiclesRateData(response.data.rentalVehicleRates);
@@ -67,7 +67,7 @@ const NewOnboardVehicle = () => {
   const fetchVehicleTypes = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`https://qbus.onrender.com/api/v1/get-all-vehicle-types`);
+      const response = await axios.get(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/get-all-vehicle-types`);
       console.log(response.data.data, "Available vehicles response");
       setVehiclesTypesData(response.data.data); // Assuming the API returns an array of vehicles
     } catch (error) {
@@ -79,15 +79,15 @@ const NewOnboardVehicle = () => {
 
   // Add new vehicle function
   const AddNewVehicle = async (data) => {
-    setLoading(true);
+    setLoading(true); // Show loading state
     try {
       const loginedUserStr = localStorage.getItem("loginedUser");
       const loginedUser = JSON.parse(loginedUserStr);
       const Token = loginedUser?.token;
-      console.log(data)
+      console.log(data);
 
       const response = await axios.post(
-        `https://qbus.onrender.com/api/v1/vehicles/add/new-vehicle/${formData.vendor}`,
+        `https://qbus-71fd8e240bea.herokuapp.com/api/v1/vehicles/add/new-vehicle/${formData.vendor}`,
         data,
         {
           headers: {
@@ -97,15 +97,28 @@ const NewOnboardVehicle = () => {
         }
       );
 
+      // Check if the vehicle was added successfully
       if (response.status === 201 || response.status === 200) {
         console.log("Vehicle added successfully:", response.data);
         toast.success("Vehicle added successfully!");
+      } else {
+        // Handle case where the response is not successful
+        const errorMessage = response?.data?.message || "Already used number";
+        toast.error(errorMessage); // Show appropriate error message
       }
     } catch (error) {
+      // Handle errors from the API or network issues
       console.error("Error adding new vehicle:", error);
-      toast.error("Error adding vehicle.");
+
+      // Check if the error response contains a message for already used number
+      if (error.response?.data?.message === "Already used number") {
+        toast.error("Already used number");
+      } else {
+        toast.error("Error adding vehicle.");
+      }
+    } finally {
+      setLoading(false); // Hide loading state
     }
-    setLoading(false);
   };
 
 

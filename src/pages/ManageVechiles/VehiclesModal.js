@@ -20,7 +20,7 @@ const VehiclesModalList = () => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`https://qbus.onrender.com/api/v1/get-all-vehicle-modal`);
+      const response = await axios.get(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/get-all-vehicle-modal`);
       console.log("data from req", response.data)
       setVehiclesModelData(response.data); // Assuming the API returns an array of vehicles
     } catch (error) {
@@ -35,7 +35,7 @@ const VehiclesModalList = () => {
     const loginedUser = JSON.parse(loginedUserStr);
     const Token = loginedUser.token;
     try {
-      const response = await axios.delete(`https://qbus.onrender.com/api/v1/admin/delete-particular-vehicle-madal/${id}`, {
+      const response = await axios.delete(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/admin/delete-particular-vehicle-madal/${id}`, {
         headers: {
           Authorization: `Bearer ${Token}`,
         },
@@ -71,7 +71,6 @@ const VehiclesModalList = () => {
                 <TableCell sx={{ textAlign: "center" }}>{item.vehicleModel}
                 </TableCell>
                 <TableCell sx={{ textAlign: "center" }}>
-                  <FaRegEdit fontSize={25} style={{ cursor: "pointer" }} onClick={() => handleAction(item._id)} />
                   <MdDelete fontSize={25} style={{ cursor: "pointer", color: "red" }} onClick={() => handleDelete(item._id)} />
                 </TableCell>
               </TableRow>

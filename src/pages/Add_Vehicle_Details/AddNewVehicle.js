@@ -31,7 +31,7 @@ const AddNewVehicleRental = () => {
   const fetchVehicleTypes = async () => {
     try {
       const response = await axios.get(
-        "https://qbus.onrender.com/api/v1/get-all-vehicle-types"
+        "https://qbus-71fd8e240bea.herokuapp.com/api/v1/get-all-vehicle-types"
       );
       setVehicleTypes(response.data.data);
     } catch (error) {
@@ -43,7 +43,7 @@ const AddNewVehicleRental = () => {
   const fetchVehicleModels = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`https://qbus.onrender.com/api/v1/get-all-vehicle-modal`);
+      const response = await axios.get(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/get-all-vehicle-modal`);
       setVehicleModels(response.data); // Assuming the API returns an array of vehicles
     } catch (error) {
       console.error("Error fetching vehicles data:", error);
@@ -56,7 +56,7 @@ const AddNewVehicleRental = () => {
   const fetchSeatingTypes = async () => {
     try {
       const response = await axios.get(
-        "https://qbus.onrender.com/api/v1/get-all-seating-type-list"
+        "https://qbus-71fd8e240bea.herokuapp.com/api/v1/get-all-seating-type-list"
       );
       console.log("data from req", response.data)
 
@@ -70,7 +70,7 @@ const AddNewVehicleRental = () => {
   const fetchVehicleRates = async () => {
     try {
       const response = await axios.get(
-        "https://qbus.onrender.com/api/v1/get-all-rates-per-km-list"
+        "https://qbus-71fd8e240bea.herokuapp.com/api/v1/get-all-rates-per-km-list"
       );
       setVehicleRates(response.data);
     } catch (error) {
@@ -104,7 +104,7 @@ const AddNewVehicleRental = () => {
       const Token = loginedUser?.token;
 
       const response = await axios.post(
-        "https://qbus.onrender.com/api/v1/admin/add-new-rental-vehicle-rate",
+        "https://qbus-71fd8e240bea.herokuapp.com/api/v1/admin/add-new-rental-vehicle-rate",
         formData,
         {
           headers: {

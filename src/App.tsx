@@ -22,6 +22,7 @@ const App = () => {
     setInputData({ ...inputData, [name]: value })
   };
 
+  const navigate=useNavigate();
   const getData = async () => {
     try {
       // const response = await axios.get(`https://qbus.onrender.com/api/v1/user/get`)
@@ -39,6 +40,7 @@ const App = () => {
       const loginedUser = response?.data?.data;
       if (response.status === 200) {
         toast.success("Logined successfully")
+        navigate("/manage")
         const userToken = loginedUser?.tokens?.[0].token;
         setIsLogin(userToken)
         localStorage.setItem('loginedUser', JSON.stringify(loginedUser));

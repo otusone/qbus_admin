@@ -24,7 +24,7 @@ const AddVehicleSeats = () => {
                 "vehicleSeating": vehicleSeats };
 
             const response = await axios.post(
-                "https://qbus.onrender.com/api/v1/admin/add-new-seating-type",
+                "https://qbus-71fd8e240bea.herokuapp.com/api/v1/admin/add-new-seating-type",
                 vehicleSeatsData,
                 {
                     headers: {

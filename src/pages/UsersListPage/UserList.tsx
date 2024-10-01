@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import styles from "./VendorPage.module.scss";
+import styles from "./UserPage.module.scss";
 import { Box, Grid, ListItemButton, Typography } from "@mui/material";
 import CommonHeading from "../../components/common/CommonHeading/CommonHeading";
 import EmployeeTable from "../../components/tableData/bookingTable/BookingTable";
@@ -17,8 +17,8 @@ import VendorTable from "../../components/tableData/VendorTable/VendorTable";
 import Heading from "../../components/Heading/Heading";
 
 
-const VendorPage = () => {
-    const [venders, setVenders] = useState()
+const UserListPage = () => {
+    const [users, setUsers] = useState()
 
     const fetchData = async () => {
         const loginedUserStr: any = localStorage.getItem("loginedUser");
@@ -28,14 +28,14 @@ const VendorPage = () => {
 
         try {
 
-            const response = await axios.get(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/user/vendor/list`,
+            const response = await axios.get(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/user/list`,
                 {
                     headers: {
                         Authorization: `Bearer ${Token}`
                     }
                 })
             const data = response.data.vendorData
-            setVenders(data)
+            setUsers(data)
             console.log(data, "response..")
 
         } catch (error) {
@@ -74,7 +74,7 @@ const VendorPage = () => {
             <Grid className={styles.employeePageContainer}>
                 <Heading heading="Vendors" />
                 <VendorTable
-                    data={venders}
+                    data={users}
                     handleDelete={handleDelete}
                 />
                 <ToastContainer />
@@ -83,4 +83,4 @@ const VendorPage = () => {
     );
 };
 
-export default VendorPage;
+export default UserListPage;
