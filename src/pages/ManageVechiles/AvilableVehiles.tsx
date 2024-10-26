@@ -104,17 +104,13 @@ const AvailableVechiles=()=>{
                     <TableCell sx={{ textAlign: "center" }}>{item?.venderId?.email}</TableCell>
                     <TableCell sx={{ textAlign: "center" }}>{item?.venderId?.mobileNumber}</TableCell>
                     <TableCell sx={{ textAlign: "center" }}>
-                      {item.name === "Bus" ?
-                        <img src={bus} width={120} height={80} />
-                        :
-                        <img src={travller} width={120} height={80} />}
+                      {item.name === "Bus" ? <img src={bus} width={120} height={80} /> : <img src={travller} width={120} height={80} />}
                     </TableCell>
-                    <TableCell sx={{ textAlign: "center" }}>{item.name}</TableCell>
-                    <TableCell sx={{ textAlign: "center" }}>      {removeSpaces(item?.vehicleNumber)}
-    </TableCell>
-                    <TableCell sx={{ textAlign: "center" }}>{item.noOfSeats}</TableCell>
-                    <TableCell sx={{ textAlign: "center" }}>{item.ratePerKm}</TableCell>
-                    <TableCell sx={{ textAlign: "center" }}>{item.available === true ? "Available" : "Not Available"}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{item?.vehicle}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>      {removeSpaces(item?.vehicleNumber)}    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{item?.noOfSeats}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{item?.ratePerKm}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{item?.available === true ? "Available" : "Not Available"}</TableCell>
                     <TableCell sx={{ textAlign: "center" }}>
                       {/* <FaRegEdit fontSize={25} style={{ cursor: "pointer" }} onClick={(() => handleAction(item._id))} /> */}
                       <MdDelete fontSize={25} style={{ cursor: "pointer", color: "red" }} onClick={(() => handleDelete(item._id))} />

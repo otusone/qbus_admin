@@ -8,14 +8,14 @@ import {
   FormControlLabel,
   Typography,
 } from "@mui/material";
-import axios, { Axios } from "axios";
+import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
 const NewOnboardVehicle = () => {
   const [vehiclesTypesData, setVehiclesTypesData] = useState([]);
   const [vehiclesRateData, setVehiclesRateData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [vendorDataList, setVendorDataList] = useState([])
+  const [vendorDataList, setVendorDataList] = useState([]);
 
   const [formData, setFormData] = useState({
     vendor: "",
@@ -27,48 +27,43 @@ const NewOnboardVehicle = () => {
     img: "",
     aminities: [],
     contactNumber: "",
+    lat: "", // Added lat
+    long: "", // Added long
   });
-
 
   const fetchVendorList = async () => {
     try {
       const loginedUserStr = localStorage.getItem("loginedUser");
       const loginedUser = JSON.parse(loginedUserStr);
       const Token = loginedUser?.token;
-      const response = await axios.get("https://qbus-71fd8e240bea.herokuapp.com/api/v1/user/vendor/list",
-        {
-          headers: {
-            Authorization: `Bearer ${Token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      console.log("vendor data ", response.data)
-      setVendorDataList(response.data.vendorData)
+      const response = await axios.get("https://qbus-71fd8e240bea.herokuapp.com/api/v1/user/vendor/list", {
+        headers: {
+          Authorization: `Bearer ${Token}`,
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("vendor data ", response.data);
+      setVendorDataList(response.data.vendorData);
     } catch (error) {
-      console.error("Error fetching vehicle rates:", error);
+      console.error("Error fetching vendor list:", error);
     }
-  }
+  };
 
-  // Fetch vehicle rates
   const fetchVehicleRates = async () => {
     try {
-      const response = await axios.get(
-        "https://qbus-71fd8e240bea.herokuapp.com/api/v1//get-all-rental-vehicle-rate-list"
-      );
-      console.log("ggg", response.data)
+      const response = await axios.get("https://qbus-71fd8e240bea.herokuapp.com/api/v1/get-all-rental-vehicle-rate-list");
+      console.log("Vehicle rates:", response.data);
       setVehiclesRateData(response.data.rentalVehicleRates);
     } catch (error) {
       console.error("Error fetching vehicle rates:", error);
     }
   };
 
-
   const fetchVehicleTypes = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/get-all-vehicle-types`);
-      console.log(response.data.data, "Available vehicles response");
+      const response = await axios.get("https://qbus-71fd8e240bea.herokuapp.com/api/v1/get-all-vehicle-types");
+      console.log("Available vehicles response:", response.data.data);
       setVehiclesTypesData(response.data.data); // Assuming the API returns an array of vehicles
     } catch (error) {
       console.error("Error fetching vehicles data:", error);
@@ -77,14 +72,13 @@ const NewOnboardVehicle = () => {
     }
   };
 
-  // Add new vehicle function
   const AddNewVehicle = async (data) => {
     setLoading(true); // Show loading state
     try {
       const loginedUserStr = localStorage.getItem("loginedUser");
       const loginedUser = JSON.parse(loginedUserStr);
       const Token = loginedUser?.token;
-      console.log(data);
+      console.log("Data to add:", data);
 
       const response = await axios.post(
         `https://qbus-71fd8e240bea.herokuapp.com/api/v1/vehicles/add/new-vehicle/${formData.vendor}`,
@@ -97,20 +91,15 @@ const NewOnboardVehicle = () => {
         }
       );
 
-      // Check if the vehicle was added successfully
       if (response.status === 201 || response.status === 200) {
         console.log("Vehicle added successfully:", response.data);
         toast.success("Vehicle added successfully!");
       } else {
-        // Handle case where the response is not successful
         const errorMessage = response?.data?.message || "Already used number";
         toast.error(errorMessage); // Show appropriate error message
       }
     } catch (error) {
-      // Handle errors from the API or network issues
       console.error("Error adding new vehicle:", error);
-
-      // Check if the error response contains a message for already used number
       if (error.response?.data?.message === "Already used number") {
         toast.error("Already used number");
       } else {
@@ -121,12 +110,10 @@ const NewOnboardVehicle = () => {
     }
   };
 
-
   useEffect(() => {
     fetchVehicleTypes();
     fetchVehicleRates();
     fetchVendorList();
-    fetchVehicleTypes()
   }, []);
 
   const handleChange = (e) => {
@@ -164,7 +151,9 @@ const NewOnboardVehicle = () => {
       img: "",
       aminities: [],
       contactNumber: "",
-    })
+      lat: "", // Reset lat
+      long: "", // Reset long
+    });
   };
 
   return (
@@ -177,7 +166,7 @@ const NewOnboardVehicle = () => {
 
         <TextField
           select
-          label="vendor "
+          label="Vendor"
           name="vendor"
           value={formData.vendor}
           onChange={handleChange}
@@ -190,7 +179,6 @@ const NewOnboardVehicle = () => {
             </MenuItem>
           ))}
         </TextField>
-
 
         <TextField
           label="Vehicle Number"
@@ -219,7 +207,6 @@ const NewOnboardVehicle = () => {
           fullWidth
           margin="normal"
         >
-
           {vehiclesRateData?.map((v) => (
             <MenuItem key={v._id} value={v._id}>
               {v.vehicleType.vehicleType}{"-- Model--("}{v?.model?.vehicleModel}{")--seats("}{v.seating.vehicleSeating}{")--rate/km("}{v.ratePerKm.ratePerKm}{")--chargeDy/Night("}{v?.driverChargePerDayOrNight}{")--min-Run/Day("}{v?.minimumRunPerDay}
@@ -264,7 +251,7 @@ const NewOnboardVehicle = () => {
         />
 
         <Typography variant="subtitle1" gutterBottom>
-          Aminities:
+          Amenities:
         </Typography>
         {["AC", "Music", "Pushback Seats", "GPS"].map((aminity) => (
           <FormControlLabel
@@ -287,6 +274,28 @@ const NewOnboardVehicle = () => {
           onChange={handleChange}
           fullWidth
           margin="normal"
+        />
+
+        {/* Added Latitude Field */}
+        <TextField
+          label="Latitude"
+          name="lat"
+          value={formData.lat}
+          onChange={handleChange}
+          fullWidth
+          margin="normal"
+          type="number" // Optional: enforce number input
+        />
+
+        {/* Added Longitude Field */}
+        <TextField
+          label="Longitude"
+          name="long"
+          value={formData.long}
+          onChange={handleChange}
+          fullWidth
+          margin="normal"
+          type="number" // Optional: enforce number input
         />
 
         <Button

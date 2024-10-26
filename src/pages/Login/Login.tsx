@@ -9,11 +9,10 @@ export interface ILogin {
     handleLogin: any;
 }
 const Login = ({ inputData, handleChange, handleLogin }: ILogin) => {
-
     return (
         <Grid className={styles.loginContainer}>
             <Box>
-                <img src={logo} alt='img' />
+                <img src={logo} alt='img'  />
             </Box>
             <Box>
                 <LoginForm

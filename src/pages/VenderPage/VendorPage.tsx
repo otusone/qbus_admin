@@ -1,9 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react";
 import styles from "./VendorPage.module.scss";
-import { Box, Grid, ListItemButton, Typography } from "@mui/material";
+import { Box, Grid, ListItemButton, Typography,Stack,Button } from "@mui/material";
 import CommonHeading from "../../components/common/CommonHeading/CommonHeading";
 import EmployeeTable from "../../components/tableData/bookingTable/BookingTable";
 // import data from "./data.json";
+import VendorModal from "../../components/modal/venderModel";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
@@ -19,7 +20,7 @@ import Heading from "../../components/Heading/Heading";
 
 const VendorPage = () => {
     const [venders, setVenders] = useState()
-
+    const [modalOpen, setModalOpen] = useState(false);
     const fetchData = async () => {
         const loginedUserStr: any = localStorage.getItem("loginedUser");
         const loginedUser = JSON.parse(loginedUserStr);
@@ -72,12 +73,19 @@ const VendorPage = () => {
     return (
         <Fragment>
             <Grid className={styles.employeePageContainer}>
-                <Heading heading="Vendors" />
+            <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Heading heading="Vendors" />
+                    <Button onClick={() => setModalOpen(true)} variant="contained">
+                        Add Vendor lat & Long
+                    </Button>
+                </Stack>
                 <VendorTable
                     data={venders}
                     handleDelete={handleDelete}
                 />
                 <ToastContainer />
+                <VendorModal open={modalOpen} handleClose={() => setModalOpen(false)} fetchData={fetchData} />
+
             </Grid>
         </Fragment>
     );
