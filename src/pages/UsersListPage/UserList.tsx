@@ -1,10 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
-import styles from "./VendorPage.module.scss";
-import { Box, Grid, ListItemButton, Typography,Stack,Button } from "@mui/material";
+import styles from "./UserPage.module.scss";
+import { Box, Grid, ListItemButton, Typography } from "@mui/material";
 import CommonHeading from "../../components/common/CommonHeading/CommonHeading";
 import EmployeeTable from "../../components/tableData/bookingTable/BookingTable";
 // import data from "./data.json";
-import VendorModal from "../../components/modal/venderModel";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
@@ -18,9 +17,9 @@ import VendorTable from "../../components/tableData/VendorTable/VendorTable";
 import Heading from "../../components/Heading/Heading";
 
 
-const VendorPage = () => {
-    const [venders, setVenders] = useState()
-    const [modalOpen, setModalOpen] = useState(false);
+const UserListPage = () => {
+    const [users, setUsers] = useState()
+
     const fetchData = async () => {
         const loginedUserStr: any = localStorage.getItem("loginedUser");
         const loginedUser = JSON.parse(loginedUserStr);
@@ -29,14 +28,14 @@ const VendorPage = () => {
 
         try {
 
-            const response = await axios.get(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/user/vendor/list`,
+            const response = await axios.get(`https://qbus-71fd8e240bea.herokuapp.com/api/v1/user/list`,
                 {
                     headers: {
                         Authorization: `Bearer ${Token}`
                     }
                 })
             const data = response.data.vendorData
-            setVenders(data)
+            setUsers(data)
             console.log(data, "response..")
 
         } catch (error) {
@@ -73,22 +72,15 @@ const VendorPage = () => {
     return (
         <Fragment>
             <Grid className={styles.employeePageContainer}>
-            <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Heading heading="Vendors" />
-                    <Button onClick={() => setModalOpen(true)} variant="contained">
-                        Add Vendor lat & Long
-                    </Button>
-                </Stack>
+                <Heading heading="Vendors" />
                 <VendorTable
-                    data={venders}
+                    data={users}
                     handleDelete={handleDelete}
                 />
                 <ToastContainer />
-                <VendorModal open={modalOpen} handleClose={() => setModalOpen(false)} fetchData={fetchData} />
-
             </Grid>
         </Fragment>
     );
 };
 
-export default VendorPage;
+export default UserListPage;

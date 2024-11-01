@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './LoginForm.module.scss'
 import { Box, Grid, Typography } from '@mui/material'
 import InputField from '../inputField/InputField'
 import CommonButton from '../common/CommonButton/CommonButton'
 import { IoMdClose } from "react-icons/io";
-
+import { useNavigate } from 'react-router-dom'
 
 export interface ILoginForm {
     inputData: any,
@@ -12,12 +12,24 @@ export interface ILoginForm {
     handleClick: any;
 
 }
+
+
+
 const LoginForm = ({inputData, handleChange, handleClick }: ILoginForm) => {
+
+
+    const navigate = useNavigate();
+
+    // useEffect(() => {
+    //     if (localStorage.getItem("loginedUser")) {
+    //         navigate("/manage");
+    //     }
+    // }, [navigate]);
 
     return (
         <Grid className={styles.loginFormContainer}>
             <Typography marginBlockEnd={4} variant='h4' fontSize={29} fontWeight={600}>Welcome
-                <span style={{ color: "#68C5AE", paddingInlineStart: 10 }}>
+                <span style={{ color: "#3FACE2", paddingInlineStart: 10 }}>
                     to login!
                 </span>
             </Typography>
@@ -43,9 +55,7 @@ const LoginForm = ({inputData, handleChange, handleClick }: ILoginForm) => {
                 name={"Login"}
                 onClick={handleClick}
             />
-            <Typography style={{ color: "#00AB8E", cursor: "pointer" }}> Kindly contact to HR, if you forgot your Password?</Typography>
-
-
+            <Typography style={{ color: "#3FACE2", cursor: "pointer" }}> Kindly contact to HR, if you forgot your Password?</Typography>
         </Grid>
     )
 }

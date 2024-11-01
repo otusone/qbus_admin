@@ -10,7 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export interface IOverview {
-    open: any;
+    open: any;  
     menu: any;
     handleSidebarMemu: any;
     handleLogout: () => void;
@@ -19,7 +19,7 @@ export interface IOverview {
 }
 const Overview = ({ open, menu, handleSidebarMemu, handleLogout, handleClick, handleResponsiveMenu }: IOverview) => {
     const [userRole, seUserRole] = useState()
-    console.log(userRole, "userRole//")
+   
 
     const getUserData = async () => {
         try {
