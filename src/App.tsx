@@ -31,7 +31,7 @@ const App = () => {
       if (response.status === 200) {
         toast.success("Logined successfully")
         navigate("/booking")
-        const userToken = loginedUser?.tokens?.[0].token;
+        const userToken = loginedUser?.token;
         setIsLogin(userToken)
         localStorage.setItem('loginedUser', JSON.stringify(loginedUser));
       }
