@@ -6,7 +6,7 @@ import data from "./data.json";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
-import Heading from "../../components/Heading/Heading"; 
+import Heading from "../../components/heading/Heading"; 
 import 'react-toastify/dist/ReactToastify.css';
 
 const BookingPage = () => {

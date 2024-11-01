@@ -7,7 +7,7 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CommonButton from "../../components/common/CommonButton/CommonButton";
-import Heading from "../../components/Heading/Heading";
+import Heading from "../../components/heading/Heading";
 import { FaRegEdit } from "react-icons/fa";
 import ActionModal from "../../components/modal/ActionModal/ActionModal";
 import bus from '../../asserst/images/bus-3.png'

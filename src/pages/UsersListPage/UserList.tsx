@@ -14,7 +14,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import * as XLSX from 'xlsx';
 import VendorTable from "../../components/tableData/VendorTable/VendorTable";
-import Heading from "../../components/Heading/Heading";
+import Heading from "../../components/heading/Heading";
 
 
 const UserListPage = () => {

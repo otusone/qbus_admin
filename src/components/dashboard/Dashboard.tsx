@@ -1,7 +1,7 @@
 import { Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 import React from 'react'
 import styles from './Dashboard.module.scss'
-import Heading from '../Heading/Heading';
+import Heading from '../heading/Heading';
 
 export interface IDashboard {
     data: any;

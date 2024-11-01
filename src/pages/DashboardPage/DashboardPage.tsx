@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './DashboardPage.module.scss'
 import { Grid, Typography } from '@mui/material'
-import Heading from '../../components/Heading/Heading'
+import Heading from '../../components/heading/Heading'
 import VahiclesModal from '../../components/modal/VahiclesModal/VahiclesModal'
 import axios from 'axios'
 import { toast } from 'react-toastify'
